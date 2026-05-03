@@ -18,19 +18,26 @@ function App() {
       </header>
 
       <main className="container">
-        <div className="left">
-          <InputForm setMealPlan={setMealPlan} />
+        <div className="left-column">
+          <div className="left">
+            <InputForm setMealPlan={setMealPlan} />
+          </div>
+
+          <aside className="preferences-box">
+            <h3>Your Preferences</h3>
+            <p>🥗 Diet: Vegetarian</p>
+            <p>💰 Budget: Low</p>
+            <p>⏱ Cooking Time: &lt; 30 min</p>
+          </aside>
         </div>
 
         <div className="right">
           <MealPlan mealPlan={mealPlan} />
         </div>
 
-        <aside className="sidebar">
-          <h3>Your Preferences</h3>
-          <p>🥗 Diet: Vegetarian</p>
-          <p>💰 Budget: Low</p>
-          <p>⏱ Cooking Time: &lt; 30 min</p>
+        <aside className="recipe-box">
+          <h3>Recipe Details</h3>
+          <p>Select a meal to view recipe details.</p>
         </aside>
       </main>
     </div>

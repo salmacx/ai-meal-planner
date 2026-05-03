@@ -36,21 +36,21 @@ const MealPlan = ({ mealPlan }: any) => {
               <div className="meal-row">
                 <div className="meal-box">
                   <span className="meal-label">
-                    ☀️ <strong>Breakfast</strong>
+                     <strong>Breakfast</strong>
                   </span>
                   <p>{day.breakfast}</p>
                 </div>
 
                 <div className="meal-box">
                   <span className="meal-label">
-                    🌤️ <strong>Lunch</strong>
+                     <strong>Lunch</strong>
                   </span>
                   <p>{day.lunch}</p>
                 </div>
 
                 <div className="meal-box">
                   <span className="meal-label">
-                    🌙 <strong>Dinner</strong>
+                    <strong>Dinner</strong>
                   </span>
                   <p>{day.dinner}</p>
                 </div>
