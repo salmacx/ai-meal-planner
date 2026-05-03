@@ -39,7 +39,7 @@ const MealPlan = ({ mealPlan, selectedMeal, setSelectedMeal }: any) => {
                   <span className="meal-label">
                      <strong>Breakfast</strong>
                   </span>
-                  <p>{day.breakfast}</p>
+                 <p>{typeof day.breakfast === "string" ? day.breakfast : day.breakfast.name}</p>
                 </div>
 
                <div className={`meal-box ${selectedMeal === day.lunch ? "selected-meal" : ""}`}
@@ -47,7 +47,7 @@ const MealPlan = ({ mealPlan, selectedMeal, setSelectedMeal }: any) => {
                   <span className="meal-label">
                      <strong>Lunch</strong>
                   </span>
-                  <p>{day.lunch}</p>
+                  <p>{typeof day.lunch === "string" ? day.lunch : day.lunch.name}</p>
                 </div>
 
                 <div className={`meal-box ${selectedMeal === day.dinner ? "selected-meal" : ""}`}
@@ -55,7 +55,7 @@ const MealPlan = ({ mealPlan, selectedMeal, setSelectedMeal }: any) => {
                   <span className="meal-label">
                     <strong>Dinner</strong>
                   </span>
-                  <p>{day.dinner}</p>
+                  <p>{typeof day.dinner === "string" ? day.dinner : day.dinner.name}</p>
                 </div>
               </div>
             )}

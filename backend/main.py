@@ -33,21 +33,35 @@ cooking_time: {request.cooking_time}
 allergies_or_dislikes: {allergies}
 
 Output requirements:
+- The "days" array length MUST be exactly {request.number_of_days}.
 - Return ONLY valid JSON.
 - JSON must match this exact shape:
 {{
   "days": [
     {{
       "day": "Day 1",
-      "breakfast": "meal",
-      "lunch": "meal",
-      "dinner": "meal"
+      "breakfast": {{
+        "name": "meal",
+        "ingredients": ["item"],
+        "steps": ["step"]
+      }},
+      "lunch": {{
+        "name": "meal",
+        "ingredients": ["item"],
+        "steps": ["step"]
+      }},
+      "dinner": {{
+        "name": "meal",
+        "ingredients": ["item"],
+        "steps": ["step"]
+      }}
     }}
   ]
 }}
 
 Rules:
-- Generate exactly {request.number_of_days} days.
+- Generate EXACTLY {request.number_of_days} day objects inside the "days" array.
+- Do NOT generate fewer or more than {request.number_of_days} days.
 - Use "Day 1", "Day 2", etc.
 - Each day must include breakfast, lunch, and dinner.
 - Meals must respect diet_type, budget, cooking_time, and allergies_or_dislikes.
@@ -67,9 +81,21 @@ def build_fallback_plan(number_of_days: int) -> MealPlanResponse:
         days.append(
             DayMealPlan(
                 day=f"Day {day_number}",
-                breakfast="Oatmeal with banana",
-                lunch="Grilled veggie wrap",
-                dinner="Rice bowl with roasted vegetables",
+                breakfast={
+                    "name": "Oatmeal with banana",
+                    "ingredients": ["oats", "milk", "banana"],
+                    "steps": ["Boil oats", "Add milk", "Add banana"],
+                },
+                lunch={
+                    "name": "Grilled veggie wrap",
+                    "ingredients": ["tortilla", "bell pepper", "zucchini", "hummus"],
+                    "steps": ["Grill vegetables", "Spread hummus on tortilla", "Wrap and serve"],
+                },
+                dinner={
+                    "name": "Rice bowl with roasted vegetables",
+                    "ingredients": ["rice", "carrot", "broccoli", "soy sauce"],
+                    "steps": ["Cook rice", "Roast vegetables", "Combine and add soy sauce"],
+                },
             )
         )
     return MealPlanResponse(days=days)
@@ -92,11 +118,16 @@ def generate_meal_plan(request: MealPlanRequest) -> MealPlanResponse:
     try:
         response = chat(
             model=OLLAMA_MODEL,
-            messages=[{"role": "system", "content": "Return valid JSON only. No markdown or extra text."},
-                      {"role": "user", "content": prompt}],
+            messages=[
+                {"role": "system", "content": "Return valid JSON only. No markdown or extra text."},
+                {"role": "user", "content": prompt},
+            ],
             format="json",
         )
         content = response["message"]["content"]
         return parse_ollama_json(content)
-    except (KeyError, json.JSONDecodeError, ValidationError, TypeError):
+
+    except (KeyError, json.JSONDecodeError, ValidationError, TypeError) as e:
+        print("ERROR PARSING OLLAMA RESPONSE:", e)
+        print("RAW OLLAMA CONTENT:", content if "content" in locals() else "NO CONTENT")
         return build_fallback_plan(request.number_of_days)

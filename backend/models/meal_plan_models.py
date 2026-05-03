@@ -9,11 +9,17 @@ class MealPlanRequest(BaseModel):
     allergies_or_dislikes: list[str]
 
 
+class Meal(BaseModel):
+    name: str
+    ingredients: list[str]
+    steps: list[str]
+
+
 class DayMealPlan(BaseModel):
     day: str
-    breakfast: str
-    lunch: str
-    dinner: str
+    breakfast: Meal
+    lunch: Meal
+    dinner: Meal
 
 
 class MealPlanResponse(BaseModel):

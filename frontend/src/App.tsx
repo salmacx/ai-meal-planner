@@ -44,21 +44,21 @@ function App() {
          <h3>Recipe Details</h3>
             {selectedMeal ? (
   <div className="selected-recipe">
-    <h4>{selectedMeal}</h4>
+   <h4>{typeof selectedMeal === "string" ? selectedMeal : selectedMeal.name}</h4>
 
     <p className="recipe-section-title">Ingredients</p>
-    <ul>
-      <li>Ingredient 1</li>
-      <li>Ingredient 2</li>
-      <li>Ingredient 3</li>
-    </ul>
+   <ul>
+  {selectedMeal.ingredients.map((ing: string, i: number) => (
+    <li key={i}>{ing}</li>
+  ))}
+</ul>
 
     <p className="recipe-section-title">Steps</p>
-    <ol>
-      <li>Prepare the ingredients.</li>
-      <li>Cook the meal.</li>
-      <li>Serve and enjoy.</li>
-    </ol>
+   <ol>
+  {selectedMeal.steps.map((step: string, i: number) => (
+    <li key={i}>{step}</li>
+  ))}
+</ol>
   </div>
 ) : (
   <p>Select a meal to view recipe details.</p>
