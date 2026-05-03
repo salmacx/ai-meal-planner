@@ -85,3 +85,24 @@ h2 {
 .day p {
   margin: 8px 0;
 }
+.meal {
+  padding: 8px 0;
+  cursor: pointer;
+}
+
+.meal p {
+  margin: 6px 0;
+}
+
+.meal-details {
+  background: white;
+  border-left: 3px solid #16a34a;
+  padding: 10px;
+  margin-top: 8px;
+  border-radius: 8px;
+}
+
+.meal-details ul,
+.meal-details ol {
+  margin-top: 6px;
+}
