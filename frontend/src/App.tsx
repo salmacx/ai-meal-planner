@@ -1,4 +1,5 @@
 import InputForm from "./components/InputForm";
+import MealPlan from "./components/MealPlan";
 import "./App.css";
 
 function App() {
@@ -9,8 +10,7 @@ function App() {
       </div>
 
       <div className="right">
-        <h2>Your Meal Plan</h2>
-        <p>No data yet</p>
+        <MealPlan />
       </div>
     </div>
   );
