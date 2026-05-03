@@ -1,7 +1,7 @@
 import { useState } from "react";
 
 const InputForm = ({ setMealPlan }: any) => {
-    const [form, setForm] = useState({
+  const [form, setForm] = useState({
     diet: "vegetarian",
     budget: "low",
     days: 3,
@@ -9,71 +9,28 @@ const InputForm = ({ setMealPlan }: any) => {
     allergies: "",
   });
 
- const handleChange = (
-  e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>
-) => {
-  const { name, value } = e.target;
+  const [error, setError] = useState("");
+  const [loading, setLoading] = useState(false);
 
-  setForm({
-    ...form,
-    [name]: name === "days" ? Number(value) : value,
-  });
-};
+  const handleChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>
+  ) => {
+    const { name, value } = e.target;
 
-const [error, setError] = useState("");
- return (
-  <div className="form">
-    <h2>Create Your Meal Plan</h2>
+    setForm({
+      ...form,
+      [name]: name === "days" ? Number(value) : value,
+    });
+  };
 
-    <label>Diet Type</label>
-    <select name="diet" value={form.diet} onChange={handleChange}>
-      <option value="vegetarian">Vegetarian</option>
-      <option value="vegan">Vegan</option>
-      <option value="omnivore">Omnivore</option>
-    </select>
-
-    <label>Budget</label>
-    <select name="budget" value={form.budget} onChange={handleChange}>
-      <option value="low">Low</option>
-      <option value="medium">Medium</option>
-      <option value="high">High</option>
-    </select>
-
-    <label>Number of Days</label>
-    <input
-      type="number"
-      name="days"
-      value={form.days}
-      onChange={handleChange}
-    />
-
-    <label>Cooking Time</label>
-    <select name="cookingTime" value={form.cookingTime} onChange={handleChange}>
-      <option value="<30">&lt; 30 min</option>
-      <option value="<60">&lt; 60 min</option>
-    </select>
-
-    <label>Allergies / Dislikes</label>
-    <input
-      type="text"
-      name="allergies"
-      placeholder="e.g. nuts, mushrooms"
-      value={form.allergies}
-      onChange={handleChange}
-    />
-
-  <button
-  onClick={() => {
-    console.log("Button clicked");
-
+  const handleSubmit = () => {
     if (form.days < 1 || form.days > 7) {
       setError("Number of days must be between 1 and 7");
       return;
     }
 
     setError("");
-
-    console.log("Starting fetch");
+    setLoading(true);
 
     fetch("http://localhost:8000/generate-meal-plan", {
       method: "POST",
@@ -90,29 +47,70 @@ const [error, setError] = useState("");
           : [],
       }),
     })
-      .then((res) => {
-        console.log("STATUS:", res.status);
-        return res.json();
-      })
+      .then((res) => res.json())
       .then((data) => {
-        console.log("API response:", data);
         setMealPlan(data);
-        console.log("SET CALLED");
       })
-      .catch((err) => {
-        console.error("FETCH ERROR:", err);
+      .catch(() => {
+        setError("Failed to generate meal plan. Please try again.");
+      })
+      .finally(() => {
+        setLoading(false);
       });
-  }}
->
-  Generate Meal Plan
-</button>
+  };
 
+  return (
+    <div className="form">
+      <h2>Create Your Meal Plan</h2>
 
-{error && <p className="error">{error}</p>}
+      <label>Diet Type</label>
+      <select name="diet" value={form.diet} onChange={handleChange}>
+        <option value="vegetarian">Vegetarian</option>
+        <option value="vegan">Vegan</option>
+        <option value="omnivore">Omnivore</option>
+      </select>
 
-  </div>
-);
+      <label>Budget</label>
+      <select name="budget" value={form.budget} onChange={handleChange}>
+        <option value="low">Low</option>
+        <option value="medium">Medium</option>
+        <option value="high">High</option>
+      </select>
 
+      <label>Number of Days</label>
+      <input
+        type="number"
+        name="days"
+        value={form.days}
+        onChange={handleChange}
+      />
+
+      <label>Cooking Time</label>
+      <select
+        name="cookingTime"
+        value={form.cookingTime}
+        onChange={handleChange}
+      >
+        <option value="<30">&lt; 30 min</option>
+        <option value="<60">&lt; 60 min</option>
+      </select>
+
+      <label>Allergies / Dislikes</label>
+      <input
+        type="text"
+        name="allergies"
+        placeholder="e.g. nuts, mushrooms"
+        value={form.allergies}
+        onChange={handleChange}
+      />
+
+      <button onClick={handleSubmit} disabled={loading}>
+        {loading ? "Generating..." : "Generate Meal Plan"}
+      </button>
+
+      {error && <p className="error">{error}</p>}
+    </div>
+  );
 };
 
 export default InputForm;
