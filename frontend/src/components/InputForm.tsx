@@ -12,16 +12,29 @@ const InputForm = ({ setMealPlan }: any) => {
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
 
-  const handleChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>
-  ) => {
-    const { name, value } = e.target;
+ const handleChange = (
+  e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>
+) => {
+  const { name, value } = e.target;
+
+  if (name === "days") {
+    let num = Number(value);
+
+    if (num < 1) num = 1;
+    if (num > 7) num = 7;
 
     setForm({
       ...form,
-      [name]: name === "days" ? Number(value) : value,
+      days: num,
     });
-  };
+    return;
+  }
+
+  setForm({
+    ...form,
+    [name]: value,
+  });
+};
 
   const handleSubmit = () => {
     if (form.days < 1 || form.days > 7) {
@@ -77,13 +90,31 @@ const InputForm = ({ setMealPlan }: any) => {
         <option value="high">High</option>
       </select>
 
-      <label>Number of Days</label>
-      <input
-        type="number"
-        name="days"
-        value={form.days}
-        onChange={handleChange}
-      />
+    <label>Number of Days</label>
+
+<div className="days-control">
+  <button
+    type="button"
+    className="days-btn"
+    onClick={() =>
+      setForm({ ...form, days: Math.max(1, form.days - 1) })
+    }
+  >
+    −
+  </button>
+
+  <span className="days-value">{form.days} days</span>
+
+  <button
+    type="button"
+    className="days-btn"
+    onClick={() =>
+      setForm({ ...form, days: Math.min(7, form.days + 1) })
+    }
+  >
+    +
+  </button>
+</div>
 
       <label>Cooking Time</label>
       <select
