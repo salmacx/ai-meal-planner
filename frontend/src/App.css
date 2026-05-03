@@ -217,6 +217,8 @@ h3 {
   border-radius: 12px;
   text-align: center;
   font-weight: 500;
+  cursor: pointer;
+  transition: all 0.15s ease;
 }
 
 .meal-label {
@@ -231,4 +233,45 @@ h3 {
   margin: 0;
   font-size: 13px;
   line-height: 1.25;
+}
+
+.meal-box:hover {
+  background: #dcfce7;
+  transform: translateY(-2px);
+}
+
+.meal-box:active {
+  transform: scale(0.96);
+}
+
+.selected-recipe h4 {
+  margin: 0 0 10px 0;
+  font-size: 18px;
+  color: #166534;
+}
+
+.recipe-section-title {
+  margin-top: 12px;
+  margin-bottom: 6px;
+  font-weight: 700;
+  font-size: 13px;
+  color: #374151;
+}
+
+.selected-recipe ul,
+.selected-recipe ol {
+  margin: 0;
+  padding-left: 18px;
+}
+
+.selected-recipe li {
+  font-size: 13px;
+  margin-bottom: 4px;
+  line-height: 1.3;
+}
+
+.selected-meal {
+  border: 2px solid #16a34a;
+  background: #dcfce7;
+  box-shadow: 0 0 0 2px rgba(22, 163, 74, 0.2);
 }

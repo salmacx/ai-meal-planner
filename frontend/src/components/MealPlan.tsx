@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-const MealPlan = ({ mealPlan }: any) => {
+const MealPlan = ({ mealPlan, selectedMeal, setSelectedMeal }: any) => {
   const [closedDays, setClosedDays] = useState<number[]>([]);
 
   const toggleDay = (index: number) => {
@@ -34,21 +34,24 @@ const MealPlan = ({ mealPlan }: any) => {
 
             {!isClosed && (
               <div className="meal-row">
-                <div className="meal-box">
+                <div className={`meal-box ${selectedMeal === day.breakfast ? "selected-meal" : ""}`}
+                onClick={() => setSelectedMeal(day.breakfast)}>
                   <span className="meal-label">
                      <strong>Breakfast</strong>
                   </span>
                   <p>{day.breakfast}</p>
                 </div>
 
-                <div className="meal-box">
+               <div className={`meal-box ${selectedMeal === day.lunch ? "selected-meal" : ""}`}
+                onClick={() => setSelectedMeal(day.lunch)}>
                   <span className="meal-label">
                      <strong>Lunch</strong>
                   </span>
                   <p>{day.lunch}</p>
                 </div>
 
-                <div className="meal-box">
+                <div className={`meal-box ${selectedMeal === day.dinner ? "selected-meal" : ""}`}
+                  onClick={() => setSelectedMeal(day.dinner)}>
                   <span className="meal-label">
                     <strong>Dinner</strong>
                   </span>
