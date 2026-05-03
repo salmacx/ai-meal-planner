@@ -1,7 +1,7 @@
 import { useState } from "react";
 
-const InputForm = () => {
-  const [form, setForm] = useState({
+const InputForm = ({ setMealPlan }: any) => {
+    const [form, setForm] = useState({
     diet: "vegetarian",
     budget: "low",
     days: 3,
@@ -9,12 +9,18 @@ const InputForm = () => {
     allergies: "",
   });
 
-  const handleChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>
-  ) => {
-    setForm({ ...form, [e.target.name]: e.target.value });
-  };
+ const handleChange = (
+  e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>
+) => {
+  const { name, value } = e.target;
 
+  setForm({
+    ...form,
+    [name]: name === "days" ? Number(value) : value,
+  });
+};
+
+const [error, setError] = useState("");
  return (
   <div className="form">
     <h2>Create Your Meal Plan</h2>
@@ -56,7 +62,54 @@ const InputForm = () => {
       onChange={handleChange}
     />
 
-    <button>Generate Meal Plan</button>
+  <button
+  onClick={() => {
+    console.log("Button clicked");
+
+    if (form.days < 1 || form.days > 7) {
+      setError("Number of days must be between 1 and 7");
+      return;
+    }
+
+    setError("");
+
+    console.log("Starting fetch");
+
+    fetch("http://localhost:8000/generate-meal-plan", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        diet_type: form.diet,
+        budget: form.budget,
+        number_of_days: form.days,
+        cooking_time: form.cookingTime,
+        allergies_or_dislikes: form.allergies
+          ? form.allergies.split(",").map((item) => item.trim())
+          : [],
+      }),
+    })
+      .then((res) => {
+        console.log("STATUS:", res.status);
+        return res.json();
+      })
+      .then((data) => {
+        console.log("API response:", data);
+        setMealPlan(data);
+        console.log("SET CALLED");
+      })
+      .catch((err) => {
+        console.error("FETCH ERROR:", err);
+      });
+  }}
+>
+  Generate Meal Plan
+</button>
+
+
+{error && <p className="error">{error}</p>}
+
   </div>
 );
 

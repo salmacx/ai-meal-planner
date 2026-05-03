@@ -1,16 +1,19 @@
+import { useState } from "react";
 import InputForm from "./components/InputForm";
 import MealPlan from "./components/MealPlan";
 import "./App.css";
 
 function App() {
+  const [mealPlan, setMealPlan] = useState(null);
+
   return (
     <div className="container">
       <div className="left">
-        <InputForm />
+        <InputForm setMealPlan={setMealPlan} />
       </div>
 
       <div className="right">
-        <MealPlan />
+        <MealPlan mealPlan={mealPlan} />
       </div>
     </div>
   );

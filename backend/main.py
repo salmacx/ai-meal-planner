@@ -2,12 +2,21 @@ import json
 import os
 
 from fastapi import FastAPI
+from fastapi.middleware.cors import CORSMiddleware
 from ollama import chat
 from pydantic import ValidationError
 
 from backend.models.meal_plan_models import DayMealPlan, MealPlanRequest, MealPlanResponse
 
 app = FastAPI()
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["http://localhost:5173"],
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
 
 OLLAMA_MODEL = os.getenv("OLLAMA_MODEL", "llama3.2")
 
