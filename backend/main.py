@@ -100,12 +100,47 @@ def build_fallback_plan(number_of_days: int) -> MealPlanResponse:
         )
     return MealPlanResponse(days=days)
 
-def parse_ollama_json(content: str) -> MealPlanResponse:
+def parse_ollama_json(content: str, number_of_days: int) -> MealPlanResponse:
     """Parses and validates the model JSON response safely."""
+
+    # this is for clean response, so removing whitespace and markdown
     cleaned = content.strip()
     if cleaned.startswith("```"):
         cleaned = cleaned.replace("```json", "").replace("```", "").strip()
+
     data = json.loads(cleaned)
+
+    # checking structure
+    days = data.get("days")
+
+    if not isinstance(days, list):
+        raise ValueError("Invalid format: 'days' must be a list")
+
+    if len(days) != number_of_days:
+        raise ValueError("Wrong number of days returned")
+
+    # checking each day
+    for day in days:
+        for field in ["day", "breakfast", "lunch", "dinner"]:
+            if field not in day:
+                raise ValueError(f"Missing field: {field}")
+
+    # checking each meal
+        for meal_key in ["breakfast", "lunch", "dinner"]:
+            meal = day[meal_key]
+
+            if not isinstance(meal, dict):
+                raise ValueError(f"{meal_key} must be an object")
+
+            if "name" not in meal:
+                raise ValueError(f"{meal_key} missing name")
+
+            if not isinstance(meal.get("ingredients"), list):
+                raise ValueError(f"{meal_key} ingredients must be a list")
+
+            if not isinstance(meal.get("steps"), list):
+                raise ValueError(f"{meal_key} steps must be a list")
+
     return MealPlanResponse(**data)
 
 @app.post("/generate-meal-plan", response_model=MealPlanResponse)
@@ -125,9 +160,9 @@ def generate_meal_plan(request: MealPlanRequest) -> MealPlanResponse:
             format="json",
         )
         content = response["message"]["content"]
-        return parse_ollama_json(content)
+        return parse_ollama_json(content,request.number_of_days)
 
-    except (KeyError, json.JSONDecodeError, ValidationError, TypeError) as e:
+    except (KeyError, json.JSONDecodeError, ValidationError, TypeError, ValueError) as e:
         print("ERROR PARSING OLLAMA RESPONSE:", e)
         print("RAW OLLAMA CONTENT:", content if "content" in locals() else "NO CONTENT")
         return build_fallback_plan(request.number_of_days)
