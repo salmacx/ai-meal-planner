@@ -166,3 +166,8 @@ def generate_meal_plan(request: MealPlanRequest) -> MealPlanResponse:
         print("ERROR PARSING OLLAMA RESPONSE:", e)
         print("RAW OLLAMA CONTENT:", content if "content" in locals() else "NO CONTENT")
         return build_fallback_plan(request.number_of_days)
+
+@app.get("/test-recipes")
+def test_recipes():
+    with open("backend/data/recipes.json") as f:
+        return json.load(f)

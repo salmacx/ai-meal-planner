@@ -1,0 +1,429 @@
+[
+  {
+    "name": "Chickpea Spinach Curry",
+    "diet": "vegan",
+    "ingredients": [
+      "chickpeas",
+      "spinach",
+      "onion",
+      "garlic",
+      "ginger",
+      "diced tomatoes",
+      "coconut milk",
+      "curry powder",
+      "olive oil",
+      "salt",
+      "black pepper"
+    ],
+    "steps": [
+      "Heat oil and sauté onion, garlic, and ginger until soft.",
+      "Add curry powder and cook for 30 seconds.",
+      "Stir in diced tomatoes and simmer for 5 minutes.",
+      "Add chickpeas and coconut milk, then simmer for 10 minutes.",
+      "Fold in spinach and cook until wilted.",
+      "Season with salt and pepper and serve."
+    ],
+    "cooking_time": "<30 min",
+    "tags": ["high-fiber", "one-pot", "budget", "meal-prep"]
+  },
+  {
+    "name": "Greek Yogurt Berry Oats",
+    "diet": "vegetarian",
+    "ingredients": [
+      "rolled oats",
+      "greek yogurt",
+      "milk",
+      "mixed berries",
+      "chia seeds",
+      "honey"
+    ],
+    "steps": [
+      "Combine oats, milk, yogurt, and chia seeds in a jar.",
+      "Stir well and refrigerate overnight.",
+      "Top with mixed berries and honey before serving."
+    ],
+    "cooking_time": "<15 min",
+    "tags": ["quick", "high-protein", "breakfast", "meal-prep"]
+  },
+  {
+    "name": "Lemon Herb Chicken Quinoa Bowl",
+    "diet": "high-protein",
+    "ingredients": [
+      "chicken breast",
+      "quinoa",
+      "cucumber",
+      "cherry tomatoes",
+      "parsley",
+      "lemon",
+      "olive oil",
+      "garlic",
+      "salt",
+      "black pepper"
+    ],
+    "steps": [
+      "Cook quinoa according to package instructions.",
+      "Season chicken with garlic, salt, pepper, and lemon juice.",
+      "Pan-sear chicken until cooked through, then slice.",
+      "Mix cucumber, tomatoes, parsley, olive oil, and lemon juice.",
+      "Serve sliced chicken over quinoa with the salad on top."
+    ],
+    "cooking_time": "<30 min",
+    "tags": ["high-protein", "meal-prep", "balanced", "lunch"]
+  },
+  {
+    "name": "Tofu Veggie Stir-Fry",
+    "diet": "vegan",
+    "ingredients": [
+      "firm tofu",
+      "broccoli",
+      "bell pepper",
+      "carrot",
+      "soy sauce",
+      "garlic",
+      "ginger",
+      "sesame oil",
+      "cornstarch",
+      "rice"
+    ],
+    "steps": [
+      "Cook rice and set aside.",
+      "Cube tofu, coat lightly with cornstarch, and pan-fry until golden.",
+      "Sauté garlic and ginger in sesame oil.",
+      "Add broccoli, bell pepper, and carrot and stir-fry until crisp-tender.",
+      "Return tofu to the pan, add soy sauce, and toss well.",
+      "Serve stir-fry over rice."
+    ],
+    "cooking_time": "<30 min",
+    "tags": ["quick", "plant-based", "weeknight", "dairy-free"]
+  },
+  {
+    "name": "Turkey Lettuce Wraps",
+    "diet": "low-carb",
+    "ingredients": [
+      "ground turkey",
+      "romaine lettuce",
+      "onion",
+      "garlic",
+      "soy sauce",
+      "carrot",
+      "green onion",
+      "olive oil",
+      "black pepper"
+    ],
+    "steps": [
+      "Heat oil and sauté onion and garlic.",
+      "Add ground turkey and cook until browned.",
+      "Stir in soy sauce and shredded carrot and cook for 2 minutes.",
+      "Spoon filling into lettuce leaves.",
+      "Top with sliced green onion and black pepper."
+    ],
+    "cooking_time": "<25 min",
+    "tags": ["low-carb", "high-protein", "quick", "gluten-light"]
+  },
+  {
+    "name": "Black Bean Sweet Potato Tacos",
+    "diet": "vegan",
+    "ingredients": [
+      "sweet potato",
+      "black beans",
+      "corn tortillas",
+      "red onion",
+      "avocado",
+      "lime",
+      "cumin",
+      "chili powder",
+      "olive oil",
+      "salt"
+    ],
+    "steps": [
+      "Dice sweet potato and roast with oil, cumin, chili powder, and salt until tender.",
+      "Warm black beans in a small pan.",
+      "Heat corn tortillas.",
+      "Fill tortillas with sweet potato and black beans.",
+      "Top with red onion, avocado, and lime juice."
+    ],
+    "cooking_time": "<30 min",
+    "tags": ["budget", "fiber-rich", "meal-prep", "dairy-free"]
+  },
+  {
+    "name": "Paneer Pea Masala",
+    "diet": "vegetarian",
+    "ingredients": [
+      "paneer",
+      "green peas",
+      "onion",
+      "garlic",
+      "ginger",
+      "diced tomatoes",
+      "garam masala",
+      "cumin",
+      "olive oil",
+      "salt"
+    ],
+    "steps": [
+      "Sauté onion, garlic, and ginger in oil until soft.",
+      "Add cumin and garam masala and cook briefly.",
+      "Stir in diced tomatoes and simmer for 5 minutes.",
+      "Add peas and paneer cubes and cook for 8 minutes.",
+      "Season with salt and serve hot."
+    ],
+    "cooking_time": "<30 min",
+    "tags": ["comfort-food", "high-protein", "one-pot", "dinner"]
+  },
+  {
+    "name": "Baked Salmon with Asparagus",
+    "diet": "pescatarian",
+    "ingredients": [
+      "salmon fillet",
+      "asparagus",
+      "lemon",
+      "garlic",
+      "olive oil",
+      "salt",
+      "black pepper"
+    ],
+    "steps": [
+      "Preheat oven to 425F.",
+      "Place salmon and asparagus on a sheet pan.",
+      "Drizzle with olive oil, lemon juice, and minced garlic.",
+      "Season with salt and pepper.",
+      "Bake until salmon flakes easily and asparagus is tender."
+    ],
+    "cooking_time": "<25 min",
+    "tags": ["high-protein", "omega-3", "sheet-pan", "low-carb"]
+  },
+  {
+    "name": "Egg Fried Cauliflower Rice",
+    "diet": "keto",
+    "ingredients": [
+      "cauliflower rice",
+      "eggs",
+      "green onion",
+      "garlic",
+      "soy sauce",
+      "sesame oil",
+      "peas",
+      "carrot"
+    ],
+    "steps": [
+      "Scramble eggs in a pan and set aside.",
+      "Sauté garlic, peas, and carrot in sesame oil for 2 minutes.",
+      "Add cauliflower rice and cook until tender.",
+      "Stir in soy sauce and cooked eggs.",
+      "Top with sliced green onion before serving."
+    ],
+    "cooking_time": "<20 min",
+    "tags": ["low-carb", "quick", "one-pan", "weeknight"]
+  },
+  {
+    "name": "Lentil Vegetable Soup",
+    "diet": "vegan",
+    "ingredients": [
+      "lentils",
+      "carrot",
+      "celery",
+      "onion",
+      "garlic",
+      "diced tomatoes",
+      "vegetable broth",
+      "olive oil",
+      "thyme",
+      "salt",
+      "black pepper"
+    ],
+    "steps": [
+      "Sauté onion, carrot, celery, and garlic in olive oil.",
+      "Add lentils, diced tomatoes, broth, and thyme.",
+      "Bring to a boil, then simmer until lentils are tender.",
+      "Season with salt and pepper and serve."
+    ],
+    "cooking_time": "30-45 min",
+    "tags": ["budget", "high-fiber", "meal-prep", "one-pot"]
+  },
+  {
+    "name": "Chicken Fajita Bowl",
+    "diet": "high-protein",
+    "ingredients": [
+      "chicken breast",
+      "brown rice",
+      "bell pepper",
+      "onion",
+      "lime",
+      "chili powder",
+      "cumin",
+      "olive oil",
+      "salt",
+      "black pepper"
+    ],
+    "steps": [
+      "Cook brown rice and set aside.",
+      "Season chicken with chili powder, cumin, salt, and pepper.",
+      "Cook chicken in a skillet until done, then slice.",
+      "Sauté bell pepper and onion until soft.",
+      "Serve chicken and vegetables over rice with lime juice."
+    ],
+    "cooking_time": "<35 min",
+    "tags": ["meal-prep", "balanced", "high-protein", "lunch"]
+  },
+  {
+    "name": "Caprese Pasta Salad",
+    "diet": "vegetarian",
+    "ingredients": [
+      "pasta",
+      "cherry tomatoes",
+      "mozzarella",
+      "basil",
+      "olive oil",
+      "balsamic vinegar",
+      "salt",
+      "black pepper"
+    ],
+    "steps": [
+      "Cook pasta, drain, and cool.",
+      "Combine pasta with cherry tomatoes and mozzarella.",
+      "Add basil, olive oil, and balsamic vinegar.",
+      "Season with salt and pepper and toss well."
+    ],
+    "cooking_time": "<25 min",
+    "tags": ["quick", "summer", "meal-prep", "family-friendly"]
+  },
+  {
+    "name": "Beef and Broccoli Stir-Fry",
+    "diet": "high-protein",
+    "ingredients": [
+      "beef sirloin",
+      "broccoli",
+      "garlic",
+      "ginger",
+      "soy sauce",
+      "cornstarch",
+      "sesame oil",
+      "rice"
+    ],
+    "steps": [
+      "Cook rice and set aside.",
+      "Slice beef and toss with cornstarch.",
+      "Sear beef in sesame oil until browned, then remove.",
+      "Stir-fry broccoli, garlic, and ginger until tender-crisp.",
+      "Return beef to pan, add soy sauce, and cook for 2 minutes.",
+      "Serve over rice."
+    ],
+    "cooking_time": "<30 min",
+    "tags": ["high-protein", "weeknight", "one-pan", "dinner"]
+  },
+  {
+    "name": "Avocado Egg Toast",
+    "diet": "vegetarian",
+    "ingredients": [
+      "whole grain bread",
+      "avocado",
+      "eggs",
+      "lemon",
+      "salt",
+      "black pepper",
+      "chili flakes"
+    ],
+    "steps": [
+      "Toast the bread slices.",
+      "Mash avocado with lemon juice, salt, and pepper.",
+      "Cook eggs to your preference.",
+      "Spread avocado on toast and top with eggs.",
+      "Finish with chili flakes."
+    ],
+    "cooking_time": "<15 min",
+    "tags": ["breakfast", "quick", "high-protein", "simple"]
+  },
+  {
+    "name": "Zucchini Noodle Pesto Chicken",
+    "diet": "keto",
+    "ingredients": [
+      "chicken breast",
+      "zucchini noodles",
+      "basil pesto",
+      "cherry tomatoes",
+      "olive oil",
+      "garlic",
+      "salt",
+      "black pepper"
+    ],
+    "steps": [
+      "Season and cook chicken breast in olive oil until done, then slice.",
+      "Sauté garlic briefly in the same pan.",
+      "Add zucchini noodles and cook for 2 to 3 minutes.",
+      "Stir in pesto and cherry tomatoes.",
+      "Top with sliced chicken and serve."
+    ],
+    "cooking_time": "<25 min",
+    "tags": ["low-carb", "high-protein", "quick", "one-pan"]
+  },
+  {
+    "name": "Mediterranean Chickpea Salad",
+    "diet": "vegan",
+    "ingredients": [
+      "chickpeas",
+      "cucumber",
+      "cherry tomatoes",
+      "red onion",
+      "parsley",
+      "lemon",
+      "olive oil",
+      "salt",
+      "black pepper"
+    ],
+    "steps": [
+      "Rinse and drain chickpeas.",
+      "Chop cucumber, tomatoes, onion, and parsley.",
+      "Whisk lemon juice, olive oil, salt, and pepper.",
+      "Combine everything in a bowl and toss well."
+    ],
+    "cooking_time": "<15 min",
+    "tags": ["no-cook", "meal-prep", "high-fiber", "budget"]
+  },
+  {
+    "name": "Shrimp Garlic Rice Skillet",
+    "diet": "pescatarian",
+    "ingredients": [
+      "shrimp",
+      "rice",
+      "garlic",
+      "onion",
+      "peas",
+      "olive oil",
+      "paprika",
+      "salt",
+      "black pepper",
+      "lemon"
+    ],
+    "steps": [
+      "Cook rice and set aside.",
+      "Sauté onion and garlic in olive oil.",
+      "Add shrimp, paprika, salt, and pepper and cook until pink.",
+      "Stir in peas and cooked rice.",
+      "Finish with lemon juice and serve."
+    ],
+    "cooking_time": "<25 min",
+    "tags": ["high-protein", "quick", "one-pan", "weeknight"]
+  },
+  {
+    "name": "Mushroom Spinach Omelette",
+    "diet": "vegetarian",
+    "ingredients": [
+      "eggs",
+      "mushrooms",
+      "spinach",
+      "onion",
+      "olive oil",
+      "salt",
+      "black pepper"
+    ],
+    "steps": [
+      "Whisk eggs with salt and pepper.",
+      "Sauté onion and mushrooms in olive oil.",
+      "Add spinach and cook until wilted.",
+      "Pour in eggs and cook until set.",
+      "Fold omelette and serve warm."
+    ],
+    "cooking_time": "<15 min",
+    "tags": ["breakfast", "high-protein", "quick", "low-carb"]
+  }
+]
