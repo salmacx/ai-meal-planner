@@ -7,6 +7,7 @@ from ollama import chat
 from pydantic import ValidationError
 
 from backend.models.meal_plan_models import DayMealPlan, MealPlanRequest, MealPlanResponse
+from backend.tools.recipe_search import search_recipes
 
 app = FastAPI()
 
@@ -171,3 +172,8 @@ def generate_meal_plan(request: MealPlanRequest) -> MealPlanResponse:
 def test_recipes():
     with open("backend/data/recipes.json") as f:
         return json.load(f)
+
+
+@app.get("/search-test")
+def search_test():
+    return search_recipes("vegan", "<30 min")
