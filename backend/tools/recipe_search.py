@@ -28,8 +28,9 @@ def search_recipes(diet_type: str, cooking_time: str) -> list[dict]:
 
     results: list[dict] = []
     for recipe in recipes:
-        if diet_filter and recipe.get("diet", "").strip().lower() != diet_filter:
-            continue
+        if diet_filter and diet_filter != "omnivore":
+            if recipe.get("diet", "").strip().lower() != diet_filter:
+                continue
 
         if time_filter_value is not None:
             recipe_time_value = time_to_minutes(recipe.get("cooking_time", ""))

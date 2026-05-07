@@ -24,6 +24,21 @@ OLLAMA_MODEL = os.getenv("OLLAMA_MODEL", "llama3.2")
 def build_prompt(request: MealPlanRequest) -> str:
     allergies = ", ".join(request.allergies_or_dislikes) if request.allergies_or_dislikes else "none"
 
+    retrieved_recipes = search_recipes(request.diet_type, request.cooking_time)[:5]
+
+    if retrieved_recipes:
+        recipe_context_parts: list[str] = ["Relevant recipes:"]
+        for index, recipe in enumerate(retrieved_recipes, start=1):
+            recipe_context_parts.append(
+                f"- Recipe {index}:\n"
+                f"  name: {recipe.get('name', '')}\n"
+                f"  ingredients: {', '.join(recipe.get('ingredients', []))}\n"
+                f"  steps: {' | '.join(recipe.get('steps', []))}"
+            )
+        recipe_context = "\n\n".join(recipe_context_parts)
+    else:
+        recipe_context = "Relevant recipes:\n- None found for the given filters."
+
     return f"""
 Create a meal plan based on these preferences:
 
@@ -32,6 +47,13 @@ budget: {request.budget}
 number_of_days: {request.number_of_days}
 cooking_time: {request.cooking_time}
 allergies_or_dislikes: {allergies}
+
+{recipe_context}
+
+You MUST base the generated meals on the provided "Relevant recipes".
+Do NOT invent completely unrelated meals.
+When possible, reuse and adapt ingredients and steps from the provided recipes.
+Do NOT ignore the provided recipes.
 
 Output requirements:
 - The "days" array length MUST be exactly {request.number_of_days}.
@@ -44,17 +66,29 @@ Output requirements:
       "breakfast": {{
         "name": "meal",
         "ingredients": ["item"],
-        "steps": ["step"]
+        "steps": [
+  "Step 1: Describe the action clearly",
+  "Step 2: Continue with the next action",
+  "Step 3: Finish the process"
+]
       }},
       "lunch": {{
         "name": "meal",
         "ingredients": ["item"],
-        "steps": ["step"]
+        "steps": [
+  "Step 1: Describe the action clearly",
+  "Step 2: Continue with the next action",
+  "Step 3: Finish the process"
+]
       }},
       "dinner": {{
         "name": "meal",
         "ingredients": ["item"],
-        "steps": ["step"]
+        "steps": [
+  "Step 1: Describe the action clearly",
+  "Step 2: Continue with the next action",
+  "Step 3: Finish the process"
+]
       }}
     }}
   ]
@@ -67,6 +101,11 @@ Rules:
 - Each day must include breakfast, lunch, and dinner.
 - Meals must respect diet_type, budget, cooking_time, and allergies_or_dislikes.
 - Keep meal names simple and realistic.
+- Each meal MUST include 3–6 detailed cooking steps.
+- Each step must contain at least 8–12 words.
+- Each step must be a full sentence describing a real cooking action.
+- Do NOT use vague steps like "cook food" or "prepare ingredients".
+- Steps must be realistic, specific, and usable by a beginner.
 
 Strict constraints:
 - Do NOT include any ingredients that violate diet_type.
