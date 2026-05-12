@@ -1,107 +1,71 @@
+from __future__ import annotations
+import concurrent.futures
+import json
+import logging
 from langchain_ollama import ChatOllama
-from backend.tools.recipe_search import search_recipes
-import random
-
-llm = ChatOllama(model="llama3.2")
-
-
-def generate_rag_response(request):
-    recipes = search_recipes(request.diet_type, request.cooking_time)
-
-    # filtering out allergies before sending to LLM
-
-    allergies = request.allergies_or_dislikes or []
-
-    if isinstance(allergies, str):
-        allergies = [a.strip() for a in allergies.split(",")]
-
-    if allergies:
-        recipes = [
-            r for r in recipes
-            if not any(
-                allergy.lower() in ingredient.lower()
-                for allergy in allergies
-                for ingredient in r.get("ingredients", [])
-            )
-        ]
-
-    recipes = recipes[:15]
-    random.shuffle(recipes)
-
-    if not recipes:
-        return """{
-      "days": []
-    }"""
-
-    context = "\n\n".join(
-        f"{r.get('name', '')}\n"
-        f"Ingredients: {', '.join(r.get('ingredients', []))}\n"
-        f"Steps: {' | '.join(r.get('steps', []))}"
-        for r in recipes
-    )
+import time
+from langchain_core.output_parsers import JsonOutputParser
+from langchain_core.prompts import PromptTemplate
 
 
-    prompt = f"""
-You are generating a structured meal plan.
+llm = ChatOllama(model="phi3:mini", temperature=0, num_predict=80)
+logger = logging.getLogger("meal_planner")
 
-You MUST ONLY use the provided recipes.
-
-STRICT RULES:
-- Each meal MUST be based on one of the provided recipes
-- Each day MUST use different recipes
-- Try to avoid repeating meals where possible
-- Prefer variety across days
-- If limited recipes, reuse them in different combinations
-- You MUST vary meals across days
-
-{context}
-
-STRICT RULES:
-- You MUST return ONLY valid JSON
-- NO text before or after JSON
-- Follow this EXACT structure:
-
-{{
-  "days": [
-    {{
-      "day": "Day 1",
-      "breakfast": {{
-        "name": "string",
-        "ingredients": ["string"],
-        "steps": ["string"]
-      }},
-      "lunch": {{
-        "name": "string",
-        "ingredients": ["string"],
-        "steps": ["string"]
-      }},
-      "dinner": {{
-        "name": "string",
-        "ingredients": ["string"],
-        "steps": ["string"]
-      }}
-    }}
-  ]
-}}
-
-CONSTRAINTS:
-- Generate EXACTLY {request.number_of_days} days
-- Respect diet: {request.diet_type}
-- Respect cooking time: {request.cooking_time}
-- Respect allergies: {request.allergies_or_dislikes}
-- Each meal MUST have 3–6 detailed steps
-- Every meal MUST clearly reuse ingredients from the provided recipes
-- Do NOT invent meals outside the provided recipes
-- If no relevant recipe exists, reuse the closest one
-- Each day MUST use a different combination of recipes
-- Try to minimize repetition across the plan
-- Reuse recipes in different combinations if needed
-- Vary ingredients and preparation slightly for each day
-- Rotate between the provided recipes to create diversity
-
-RETURN JSON ONLY.
+PROMPT = PromptTemplate.from_template(
 """
+Return ONLY valid JSON with this structure:
+{{ "days": [...] }}
 
-    response = llm.invoke(prompt)
+Rules:
+- Keep same structure (days → meals)
+- Each meal must have: name, ingredients, steps, reason
+- Keep meals simple
+- Respect diet: {diet_type}
+- Avoid: {allergies}
+- Avoid repeating: {avoided_meals}
 
-    return response.content
+Input:
+{input_plan}
+"""
+)
+
+parser = JsonOutputParser()
+
+CHAIN = PROMPT | llm | parser
+
+def enrich_plan_with_llm(
+    days_payload: list[dict],
+    diet_type: str,
+    allergies: list[str],
+    avoided_meals: list[str],
+    recipe_context: list[dict],
+    timeout_seconds: int = 20,
+) -> tuple[str | None, float]:
+    context = [{"name": r.get("name"), "diet": r.get("diet"), "tags": r.get("tags", []), "ingredients": r.get("ingredients", [])[:5]} for r in recipe_context[:5]]
+
+    vars = {
+        "diet_type": diet_type,
+        "allergies": ", ".join(allergies) if allergies else "none",
+        "avoided_meals": avoided_meals[:10],
+        "input_plan": json.dumps({"days": days_payload}, ensure_ascii=False),
+        "retrieved_recipes": json.dumps(context, ensure_ascii=False),
+    }
+
+    def _invoke() -> dict:
+        return CHAIN.invoke(vars)
+
+    logger.info("langchain_chain_execute_start context_recipes=%s", len(recipe_context))
+    start = time.time()
+    for _ in range(2):
+        try:
+            with concurrent.futures.ThreadPoolExecutor(max_workers=1) as executor:
+                future = executor.submit(_invoke)
+                result = future.result(timeout=timeout_seconds)
+                logger.info("langchain_chain_execute_success")
+                return result, time.time() - start
+        except Exception as exc:
+            logger.warning(f"LLM ERROR: {repr(exc)}")
+            continue
+
+    logger.error("LLM FAILED COMPLETELY")
+    return None, time.time() - start

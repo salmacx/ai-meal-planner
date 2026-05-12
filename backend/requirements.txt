@@ -1,4 +1,5 @@
 FastAPI
 pydantic
 uvicorn
-ollama
+langchain-ollama
+pymongo

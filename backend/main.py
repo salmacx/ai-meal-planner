@@ -1,11 +1,26 @@
-import json
+import logging
+import os
+import random
+import time
+import re
 
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 
-from backend.models.meal_plan_models import DayMealPlan, MealPlanRequest, MealPlanResponse
+from backend.agents.rag_chain import enrich_plan_with_llm
+from backend.models.meal_plan_models import DayMealPlan, MealPlanRequest, MealPlanResponse, PreferencesRequest
+from backend.tools.MongoMemory import MongoMemory
+from backend.tools.json_memory import JsonMemory
+from backend.tools.meal_planner import build_base_plan
 from backend.tools.recipe_search import search_recipes
-from backend.agents.rag_chain import generate_rag_response
+from backend.tools.validation import parse_and_validate
+from dotenv import load_dotenv
+
+load_dotenv()
+
+logging.basicConfig(level=logging.INFO)
+logger = logging.getLogger("meal_planner")
+
 
 app = FastAPI()
 
@@ -17,132 +32,132 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
+memory = MongoMemory(os.getenv("MONGODB_URI"))
+
+json_memory = JsonMemory()
 
 
-def build_fallback_plan(number_of_days: int) -> MealPlanResponse:
-    """Fallback used when Ollama output is missing/malformed."""
-    days: list[DayMealPlan] = []
-    for day_number in range(1, number_of_days + 1):
-        days.append(
-            DayMealPlan(
-                day=f"Day {day_number}",
-                breakfast={
-                    "name": "Oatmeal with banana",
-                    "ingredients": ["oats", "milk", "banana"],
-                    "steps": [
-                        "Boil oats in water or milk until soft and creamy.",
-                        "Stir in milk and mix thoroughly until combined.",
-                        "Slice banana and add on top before serving."
-                    ],
-                },
-                lunch={
-                    "name": "Grilled veggie wrap",
-                    "ingredients": ["tortilla", "bell pepper", "zucchini", "hummus"],
-                    "steps": [
-    "Slice vegetables and grill them in a pan until soft and slightly charred.",
-    "Spread hummus evenly across the tortilla surface.",
-    "Place grilled vegetables on top, wrap tightly, and serve warm."
-],
-                },
-                dinner={
-                    "name": "Rice bowl with roasted vegetables",
-                    "ingredients": ["rice", "carrot", "broccoli", "soy sauce"],
-                    "steps": [
-    "Cook rice according to package instructions until tender and fluffy.",
-    "Chop vegetables and roast them in the oven with oil until golden.",
-    "Combine cooked rice with roasted vegetables and drizzle with soy sauce before serving."
-],
-                },
-            )
-        )
-    return MealPlanResponse(days=days)
+def _response_from_base(days_payload: list[dict]) -> MealPlanResponse:
+    return MealPlanResponse(days=[DayMealPlan(**day) for day in days_payload])
 
-def parse_ollama_json(content: str, number_of_days: int) -> MealPlanResponse:
-    """Parses and validates the model JSON response safely."""
+def estimate_calories(meal_name: str) -> int:
+    meal = meal_name.lower()
 
-    # this is for clean response, so removing whitespace and markdown
-    cleaned = content.strip()
-    if cleaned.startswith("```"):
-        cleaned = cleaned.replace("```json", "").replace("```", "").strip()
+    score = 0
 
-    data = json.loads(cleaned)
+    if any(x in meal for x in ["salad", "soup"]):
+        score += 300
+    if any(x in meal for x in ["rice", "pasta", "noodles"]):
+        score += 250
+    if any(x in meal for x in ["chicken", "beef", "tofu"]):
+        score += 300
+    if any(x in meal for x in ["egg", "cheese"]):
+        score += 200
+    if any(x in meal for x in ["smoothie", "oats"]):
+        score += 250
 
-    # checking structure
-    days = data.get("days")
+    return score if score > 0 else 450
 
-    if not isinstance(days, list):
-        raise ValueError("Invalid format: 'days' must be a list")
+def add_fallback_calories(plan: MealPlanResponse) -> MealPlanResponse:
+    for day in plan.days:
+        for meal in [day.breakfast, day.lunch, day.dinner]:
+            if meal.calories is None:
+                meal.calories = estimate_calories(meal.name)
+    return plan
 
-    if len(days) != number_of_days:
-        raise ValueError("Wrong number of days returned")
+def clean_llm_output(text: str) -> str:
+    text = text.strip()
 
-    # checking each day
-    for day in days:
-        for field in ["day", "breakfast", "lunch", "dinner"]:
-            if field not in day:
-                raise ValueError(f"Missing field: {field}")
+    if "```" in text:
+        parts = text.split("```")
+        if len(parts) >= 2:
+            text = parts[1]
 
-    # checking each meal
-        for meal_key in ["breakfast", "lunch", "dinner"]:
-            meal = day[meal_key]
+    # extract only JSON object
+    match = re.search(r"\{.*\}", text, re.DOTALL)
+    if match:
+        return match.group(0)
 
-            if not isinstance(meal, dict):
-                raise ValueError(f"{meal_key} must be an object")
+    return text
 
-            if "name" not in meal:
-                raise ValueError(f"{meal_key} missing name")
+@app.post("/preferences")
+def save_preferences(payload: PreferencesRequest):
+    return json_memory.save_preferences(payload.diet, payload.allergies)
 
-            if not isinstance(meal.get("ingredients"), list):
-                raise ValueError(f"{meal_key} ingredients must be a list")
-
-            if not isinstance(meal.get("steps"), list):
-                raise ValueError(f"{meal_key} steps must be a list")
-
-    # checking duplicates across all days
-
-    seen_meals = set()
-
-    for day in days:
-        for meal_key in ["breakfast", "lunch", "dinner"]:
-            meal_name = day[meal_key].get("name", "").strip().lower()
-
-            if meal_name in seen_meals:
-                continue
-
-            seen_meals.add(meal_name)
-
-    return MealPlanResponse(**data)
-
-
+@app.get("/preferences")
+def get_preferences():
+    return json_memory.load()
 
 @app.post("/generate-meal-plan", response_model=MealPlanResponse)
 def generate_meal_plan(request: MealPlanRequest) -> MealPlanResponse:
-    """
-    Accepts user meal preferences and return structured meal plan JSON.
-    """
+    stored = json_memory.load()
+    diet = request.diet_type or stored.get("diet") or "omnivore"
+    allergies = request.allergies_or_dislikes or stored.get("allergies", [])
+    avoided_meals = stored.get("recent_meals", [])
 
-    try:
-        for _ in range(3):  # try up to 3 times
-            content = generate_rag_response(request)
+    logger.info("memory_loaded diet=%s allergies=%s avoided_meals=%s", diet, len(allergies), len(avoided_meals))
 
-            try:
-                return parse_ollama_json(content, request.number_of_days)
-            except (json.JSONDecodeError, ValueError):
-                continue
+    recipes = search_recipes(diet, request.cooking_time)
+    random.seed(time.time())
+    base_days = build_base_plan(recipes, request.number_of_days, allergies)
+    base_response = _response_from_base(base_days)
 
-        # if all retries fail then fallback
-        return build_fallback_plan(request.number_of_days)
+    logger.info("prompt_generation_ready days=%s avoided_meals=%s", len(base_days), len(avoided_meals))
+    recipe_context = recipes[:5]
+    llm_content, llm_seconds = enrich_plan_with_llm(base_days, diet, allergies, avoided_meals, recipe_context,timeout_seconds=20)
 
-    except Exception as e:
-        print("Unexpected error:", str(e))
-        return build_fallback_plan(request.number_of_days)
+    logger.info("llm_inference_time_seconds=%.2f", llm_seconds)
 
-@app.get("/test-recipes")
-def test_recipes():
-    with open("backend/data/recipes.json") as f:
-        return json.load(f)
+    if llm_content:
+        try:
+            llm_response = parse_and_validate(
+                llm_content,
+                request.number_of_days,
+                diet,
+                allergies
+            )
+
+            # quality check
+            def is_real_meal(name: str) -> bool:
+                bad = ["breakfast meal", "lunch meal", "dinner meal"]
+                return name.lower() not in bad
+
+            good = 0
+            total = 0
+
+            for day in llm_response.days:
+                for meal in [day.breakfast, day.lunch, day.dinner]:
+                    total += 1
+                    if is_real_meal(meal.name):
+                        good += 1
+
+            score = good / total if total else 0
+
+            # only use llm if it aint trash
+            if score >= 0.6:
+                final_response = llm_response
+                logger.info("llm_used score=%.2f", score)
+            else:
+                final_response = base_response
+                logger.warning("llm_rejected_low_quality score=%.2f", score)
+
+        except Exception as exc:
+            logger.warning("LLM parse failed, using fallback: %s", exc)
+            final_response = base_response
+    else:
+        logger.warning("llm_failed_fallback_used")
+        final_response = base_response
+
+    meal_names = []
+    for day in final_response.days:
+        meal_names.extend([day.breakfast.name, day.lunch.name, day.dinner.name])
+    json_memory.add_recent_meals(meal_names)
+
+    final_response = add_fallback_calories(final_response)
+    memory.save_plan(request.user_id, request.model_dump(), final_response.model_dump())
+    return final_response
 
 
-@app.get("/search-test")
-def search_test():
-    return search_recipes("vegan", "<30 min")
+@app.get("/meal-history")
+def meal_history(user_id: str | None = None, limit: int = 5):
+    return memory.get_recent_plans(user_id=user_id, limit=limit)

@@ -1,429 +1,882 @@
 [
-  {
-    "name": "Chickpea Spinach Curry",
-    "diet": "vegan",
-    "ingredients": [
-      "chickpeas",
-      "spinach",
-      "onion",
-      "garlic",
-      "ginger",
-      "diced tomatoes",
-      "coconut milk",
-      "curry powder",
-      "olive oil",
-      "salt",
-      "black pepper"
-    ],
-    "steps": [
-      "Heat oil and sauté onion, garlic, and ginger until soft.",
-      "Add curry powder and cook for 30 seconds.",
-      "Stir in diced tomatoes and simmer for 5 minutes.",
-      "Add chickpeas and coconut milk, then simmer for 10 minutes.",
-      "Fold in spinach and cook until wilted.",
-      "Season with salt and pepper and serve."
-    ],
-    "cooking_time": "<30 min",
-    "tags": ["high-fiber", "one-pot", "budget", "meal-prep"]
-  },
-  {
-    "name": "Greek Yogurt Berry Oats",
-    "diet": "vegetarian",
-    "ingredients": [
-      "rolled oats",
-      "greek yogurt",
-      "milk",
-      "mixed berries",
-      "chia seeds",
-      "honey"
-    ],
-    "steps": [
-      "Combine oats, milk, yogurt, and chia seeds in a jar.",
-      "Stir well and refrigerate overnight.",
-      "Top with mixed berries and honey before serving."
-    ],
-    "cooking_time": "<15 min",
-    "tags": ["quick", "high-protein", "breakfast", "meal-prep"]
-  },
-  {
-    "name": "Lemon Herb Chicken Quinoa Bowl",
-    "diet": "high-protein",
-    "ingredients": [
-      "chicken breast",
-      "quinoa",
-      "cucumber",
-      "cherry tomatoes",
-      "parsley",
-      "lemon",
-      "olive oil",
-      "garlic",
-      "salt",
-      "black pepper"
-    ],
-    "steps": [
-      "Cook quinoa according to package instructions.",
-      "Season chicken with garlic, salt, pepper, and lemon juice.",
-      "Pan-sear chicken until cooked through, then slice.",
-      "Mix cucumber, tomatoes, parsley, olive oil, and lemon juice.",
-      "Serve sliced chicken over quinoa with the salad on top."
-    ],
-    "cooking_time": "<30 min",
-    "tags": ["high-protein", "meal-prep", "balanced", "lunch"]
-  },
-  {
-    "name": "Tofu Veggie Stir-Fry",
-    "diet": "vegan",
-    "ingredients": [
-      "firm tofu",
-      "broccoli",
-      "bell pepper",
-      "carrot",
-      "soy sauce",
-      "garlic",
-      "ginger",
-      "sesame oil",
-      "cornstarch",
-      "rice"
-    ],
-    "steps": [
-      "Cook rice and set aside.",
-      "Cube tofu, coat lightly with cornstarch, and pan-fry until golden.",
-      "Sauté garlic and ginger in sesame oil.",
-      "Add broccoli, bell pepper, and carrot and stir-fry until crisp-tender.",
-      "Return tofu to the pan, add soy sauce, and toss well.",
-      "Serve stir-fry over rice."
-    ],
-    "cooking_time": "<30 min",
-    "tags": ["quick", "plant-based", "weeknight", "dairy-free"]
-  },
-  {
-    "name": "Turkey Lettuce Wraps",
-    "diet": "low-carb",
-    "ingredients": [
-      "ground turkey",
-      "romaine lettuce",
-      "onion",
-      "garlic",
-      "soy sauce",
-      "carrot",
-      "green onion",
-      "olive oil",
-      "black pepper"
-    ],
-    "steps": [
-      "Heat oil and sauté onion and garlic.",
-      "Add ground turkey and cook until browned.",
-      "Stir in soy sauce and shredded carrot and cook for 2 minutes.",
-      "Spoon filling into lettuce leaves.",
-      "Top with sliced green onion and black pepper."
-    ],
-    "cooking_time": "<25 min",
-    "tags": ["low-carb", "high-protein", "quick", "gluten-light"]
-  },
-  {
-    "name": "Black Bean Sweet Potato Tacos",
-    "diet": "vegan",
-    "ingredients": [
-      "sweet potato",
-      "black beans",
-      "corn tortillas",
-      "red onion",
-      "avocado",
-      "lime",
-      "cumin",
-      "chili powder",
-      "olive oil",
-      "salt"
-    ],
-    "steps": [
-      "Dice sweet potato and roast with oil, cumin, chili powder, and salt until tender.",
-      "Warm black beans in a small pan.",
-      "Heat corn tortillas.",
-      "Fill tortillas with sweet potato and black beans.",
-      "Top with red onion, avocado, and lime juice."
-    ],
-    "cooking_time": "<30 min",
-    "tags": ["budget", "fiber-rich", "meal-prep", "dairy-free"]
-  },
-  {
-    "name": "Paneer Pea Masala",
-    "diet": "vegetarian",
-    "ingredients": [
-      "paneer",
-      "green peas",
-      "onion",
-      "garlic",
-      "ginger",
-      "diced tomatoes",
-      "garam masala",
-      "cumin",
-      "olive oil",
-      "salt"
-    ],
-    "steps": [
-      "Sauté onion, garlic, and ginger in oil until soft.",
-      "Add cumin and garam masala and cook briefly.",
-      "Stir in diced tomatoes and simmer for 5 minutes.",
-      "Add peas and paneer cubes and cook for 8 minutes.",
-      "Season with salt and serve hot."
-    ],
-    "cooking_time": "<30 min",
-    "tags": ["comfort-food", "high-protein", "one-pot", "dinner"]
-  },
-  {
-    "name": "Baked Salmon with Asparagus",
-    "diet": "pescatarian",
-    "ingredients": [
-      "salmon fillet",
-      "asparagus",
-      "lemon",
-      "garlic",
-      "olive oil",
-      "salt",
-      "black pepper"
-    ],
-    "steps": [
-      "Preheat oven to 425F.",
-      "Place salmon and asparagus on a sheet pan.",
-      "Drizzle with olive oil, lemon juice, and minced garlic.",
-      "Season with salt and pepper.",
-      "Bake until salmon flakes easily and asparagus is tender."
-    ],
-    "cooking_time": "<25 min",
-    "tags": ["high-protein", "omega-3", "sheet-pan", "low-carb"]
-  },
-  {
-    "name": "Egg Fried Cauliflower Rice",
-    "diet": "keto",
-    "ingredients": [
-      "cauliflower rice",
-      "eggs",
-      "green onion",
-      "garlic",
-      "soy sauce",
-      "sesame oil",
-      "peas",
-      "carrot"
-    ],
-    "steps": [
-      "Scramble eggs in a pan and set aside.",
-      "Sauté garlic, peas, and carrot in sesame oil for 2 minutes.",
-      "Add cauliflower rice and cook until tender.",
-      "Stir in soy sauce and cooked eggs.",
-      "Top with sliced green onion before serving."
-    ],
-    "cooking_time": "<20 min",
-    "tags": ["low-carb", "quick", "one-pan", "weeknight"]
-  },
-  {
-    "name": "Lentil Vegetable Soup",
-    "diet": "vegan",
-    "ingredients": [
-      "lentils",
-      "carrot",
-      "celery",
-      "onion",
-      "garlic",
-      "diced tomatoes",
-      "vegetable broth",
-      "olive oil",
-      "thyme",
-      "salt",
-      "black pepper"
-    ],
-    "steps": [
-      "Sauté onion, carrot, celery, and garlic in olive oil.",
-      "Add lentils, diced tomatoes, broth, and thyme.",
-      "Bring to a boil, then simmer until lentils are tender.",
-      "Season with salt and pepper and serve."
-    ],
-    "cooking_time": "30-45 min",
-    "tags": ["budget", "high-fiber", "meal-prep", "one-pot"]
-  },
-  {
-    "name": "Chicken Fajita Bowl",
-    "diet": "high-protein",
-    "ingredients": [
-      "chicken breast",
-      "brown rice",
-      "bell pepper",
-      "onion",
-      "lime",
-      "chili powder",
-      "cumin",
-      "olive oil",
-      "salt",
-      "black pepper"
-    ],
-    "steps": [
-      "Cook brown rice and set aside.",
-      "Season chicken with chili powder, cumin, salt, and pepper.",
-      "Cook chicken in a skillet until done, then slice.",
-      "Sauté bell pepper and onion until soft.",
-      "Serve chicken and vegetables over rice with lime juice."
-    ],
-    "cooking_time": "<35 min",
-    "tags": ["meal-prep", "balanced", "high-protein", "lunch"]
-  },
-  {
-    "name": "Caprese Pasta Salad",
-    "diet": "vegetarian",
-    "ingredients": [
-      "pasta",
-      "cherry tomatoes",
-      "mozzarella",
-      "basil",
-      "olive oil",
-      "balsamic vinegar",
-      "salt",
-      "black pepper"
-    ],
-    "steps": [
-      "Cook pasta, drain, and cool.",
-      "Combine pasta with cherry tomatoes and mozzarella.",
-      "Add basil, olive oil, and balsamic vinegar.",
-      "Season with salt and pepper and toss well."
-    ],
-    "cooking_time": "<25 min",
-    "tags": ["quick", "summer", "meal-prep", "family-friendly"]
-  },
-  {
-    "name": "Beef and Broccoli Stir-Fry",
-    "diet": "high-protein",
-    "ingredients": [
-      "beef sirloin",
-      "broccoli",
-      "garlic",
-      "ginger",
-      "soy sauce",
-      "cornstarch",
-      "sesame oil",
-      "rice"
-    ],
-    "steps": [
-      "Cook rice and set aside.",
-      "Slice beef and toss with cornstarch.",
-      "Sear beef in sesame oil until browned, then remove.",
-      "Stir-fry broccoli, garlic, and ginger until tender-crisp.",
-      "Return beef to pan, add soy sauce, and cook for 2 minutes.",
-      "Serve over rice."
-    ],
-    "cooking_time": "<30 min",
-    "tags": ["high-protein", "weeknight", "one-pan", "dinner"]
-  },
-  {
-    "name": "Avocado Egg Toast",
-    "diet": "vegetarian",
-    "ingredients": [
-      "whole grain bread",
-      "avocado",
-      "eggs",
-      "lemon",
-      "salt",
-      "black pepper",
-      "chili flakes"
-    ],
-    "steps": [
-      "Toast the bread slices.",
-      "Mash avocado with lemon juice, salt, and pepper.",
-      "Cook eggs to your preference.",
-      "Spread avocado on toast and top with eggs.",
-      "Finish with chili flakes."
-    ],
-    "cooking_time": "<15 min",
-    "tags": ["breakfast", "quick", "high-protein", "simple"]
-  },
-  {
-    "name": "Zucchini Noodle Pesto Chicken",
-    "diet": "keto",
-    "ingredients": [
-      "chicken breast",
-      "zucchini noodles",
-      "basil pesto",
-      "cherry tomatoes",
-      "olive oil",
-      "garlic",
-      "salt",
-      "black pepper"
-    ],
-    "steps": [
-      "Season and cook chicken breast in olive oil until done, then slice.",
-      "Sauté garlic briefly in the same pan.",
-      "Add zucchini noodles and cook for 2 to 3 minutes.",
-      "Stir in pesto and cherry tomatoes.",
-      "Top with sliced chicken and serve."
-    ],
-    "cooking_time": "<25 min",
-    "tags": ["low-carb", "high-protein", "quick", "one-pan"]
-  },
-  {
-    "name": "Mediterranean Chickpea Salad",
-    "diet": "vegan",
-    "ingredients": [
-      "chickpeas",
-      "cucumber",
-      "cherry tomatoes",
-      "red onion",
-      "parsley",
-      "lemon",
-      "olive oil",
-      "salt",
-      "black pepper"
-    ],
-    "steps": [
-      "Rinse and drain chickpeas.",
-      "Chop cucumber, tomatoes, onion, and parsley.",
-      "Whisk lemon juice, olive oil, salt, and pepper.",
-      "Combine everything in a bowl and toss well."
-    ],
-    "cooking_time": "<15 min",
-    "tags": ["no-cook", "meal-prep", "high-fiber", "budget"]
-  },
-  {
-    "name": "Shrimp Garlic Rice Skillet",
-    "diet": "pescatarian",
-    "ingredients": [
-      "shrimp",
-      "rice",
-      "garlic",
-      "onion",
-      "peas",
-      "olive oil",
-      "paprika",
-      "salt",
-      "black pepper",
-      "lemon"
-    ],
-    "steps": [
-      "Cook rice and set aside.",
-      "Sauté onion and garlic in olive oil.",
-      "Add shrimp, paprika, salt, and pepper and cook until pink.",
-      "Stir in peas and cooked rice.",
-      "Finish with lemon juice and serve."
-    ],
-    "cooking_time": "<25 min",
-    "tags": ["high-protein", "quick", "one-pan", "weeknight"]
-  },
-  {
-    "name": "Mushroom Spinach Omelette",
-    "diet": "vegetarian",
-    "ingredients": [
-      "eggs",
-      "mushrooms",
-      "spinach",
-      "onion",
-      "olive oil",
-      "salt",
-      "black pepper"
-    ],
-    "steps": [
-      "Whisk eggs with salt and pepper.",
-      "Sauté onion and mushrooms in olive oil.",
-      "Add spinach and cook until wilted.",
-      "Pour in eggs and cook until set.",
-      "Fold omelette and serve warm."
-    ],
-    "cooking_time": "<15 min",
-    "tags": ["breakfast", "high-protein", "quick", "low-carb"]
-  }
+{
+"name": "Overnight Oats with Blueberries and Almonds",
+"diet": "vegan",
+"ingredients": ["rolled oats", "almond milk", "blueberries", "chia seeds", "maple syrup", "sliced almonds"],
+"steps": ["Stir oats, almond milk, chia seeds, and maple syrup in a jar.", "Cover and refrigerate overnight.", "Top with blueberries and sliced almonds before serving cold."],
+"cooking_time": "<15 min",
+"tags": ["breakfast"]
+},
+{
+"name": "Peanut Banana Toast",
+"diet": "vegan",
+"ingredients": ["gluten-free bread", "peanut butter", "banana", "cinnamon", "pumpkin seeds"],
+"steps": ["Toast the bread slices.", "Spread peanut butter over toast.", "Top with banana slices, cinnamon, and pumpkin seeds."],
+"cooking_time": "<15 min",
+"tags": ["breakfast"]
+},
+{
+"name": "Greek Yogurt Berry Parfait",
+"diet": "vegetarian",
+"ingredients": ["greek yogurt", "strawberries", "raspberries", "granola", "honey", "mint"],
+"steps": ["Layer yogurt, berries, and granola in a glass.", "Drizzle honey between layers.", "Finish with mint and serve chilled."],
+"cooking_time": "<15 min",
+"tags": ["breakfast"]
+},
+{
+"name": "Savory Tofu Breakfast Scramble",
+"diet": "vegan",
+"ingredients": ["firm tofu", "spinach", "bell pepper", "onion", "turmeric", "olive oil", "salt"],
+"steps": ["Crumble tofu into a bowl and season with turmeric and salt.", "Sauté onion and bell pepper in olive oil for 3 minutes.", "Add tofu and cook until warmed through, then fold in spinach until wilted."],
+"cooking_time": "<15 min",
+"tags": ["breakfast"]
+},
+{
+"name": "Mushroom and Spinach Egg Muffins",
+"diet": "vegetarian",
+"ingredients": ["eggs", "mushrooms", "spinach", "onion", "olive oil", "salt", "pepper"],
+"steps": ["Preheat oven to 375°F and grease a muffin tin.", "Sauté onion and mushrooms in olive oil, then add spinach to wilt.", "Whisk eggs with salt and pepper, divide veggies into cups, pour eggs over, and bake 15–18 minutes."],
+"cooking_time": "<30 min",
+"tags": ["breakfast"]
+},
+{
+"name": "Chia Pudding with Mango",
+"diet": "vegan",
+"ingredients": ["chia seeds", "coconut milk", "mango", "lime zest", "maple syrup"],
+"steps": ["Whisk chia seeds, coconut milk, and maple syrup in a bowl.", "Refrigerate for at least 4 hours until thick.", "Top with diced mango and lime zest."],
+"cooking_time": "<15 min",
+"tags": ["breakfast"]
+},
+{
+"name": "Avocado Radish Rice Cakes",
+"diet": "vegan",
+"ingredients": ["rice cakes", "avocado", "radish", "lemon juice", "salt", "black pepper"],
+"steps": ["Mash avocado with lemon juice, salt, and pepper.", "Spread avocado on rice cakes.", "Top with thinly sliced radish and serve immediately."],
+"cooking_time": "<15 min",
+"tags": ["breakfast"]
+},
+{
+"name": "Cottage Cheese Pineapple Bowl",
+"diet": "vegetarian",
+"ingredients": ["cottage cheese", "pineapple", "walnuts", "honey", "ground flaxseed"],
+"steps": ["Spoon cottage cheese into a bowl.", "Top with pineapple chunks and chopped walnuts.", "Drizzle honey and sprinkle flaxseed before serving."],
+"cooking_time": "<15 min",
+"tags": ["breakfast"]
+},
+{
+"name": "Sweet Potato Breakfast Hash",
+"diet": "vegan",
+"ingredients": ["sweet potato", "red onion", "kale", "olive oil", "paprika", "salt"],
+"steps": ["Dice sweet potato and sauté in olive oil for 8 minutes.", "Add onion, paprika, and salt and cook until onion softens.", "Stir in kale and cook 2 minutes until tender."],
+"cooking_time": "<30 min",
+"tags": ["breakfast"]
+},
+{
+"name": "Smoked Salmon Cucumber Plate",
+"diet": "omnivore",
+"ingredients": ["smoked salmon", "cucumber", "avocado", "capers", "lemon", "dill"],
+"steps": ["Slice cucumber and avocado and arrange on a plate.", "Add smoked salmon and scatter capers.", "Squeeze lemon and garnish with dill."],
+"cooking_time": "<15 min",
+"tags": ["breakfast", "lunch"]
+},
+{
+"name": "Chicken Lettuce Wrap Lunch",
+"diet": "omnivore",
+"ingredients": ["cooked chicken breast", "romaine leaves", "carrot", "cucumber", "sesame oil", "lime juice", "soy sauce"],
+"steps": ["Shred chicken and toss with sesame oil, lime juice, and soy sauce.", "Add julienned carrot and cucumber to the chicken mixture.", "Spoon into romaine leaves and serve."],
+"cooking_time": "<15 min",
+"tags": ["lunch"]
+},
+{
+"name": "Quinoa Chickpea Herb Salad",
+"diet": "vegan",
+"ingredients": ["cooked quinoa", "chickpeas", "cucumber", "parsley", "lemon juice", "olive oil", "salt"],
+"steps": ["Combine quinoa, chickpeas, diced cucumber, and chopped parsley.", "Whisk lemon juice, olive oil, and salt for dressing.", "Toss salad with dressing and chill 10 minutes."],
+"cooking_time": "<15 min",
+"tags": ["lunch"]
+},
+{
+"name": "Turkey Hummus Veggie Wrap",
+"diet": "omnivore",
+"ingredients": ["gluten-free wrap", "turkey slices", "hummus", "spinach", "bell pepper", "cucumber"],
+"steps": ["Spread hummus over the wrap.", "Layer turkey, spinach, bell pepper, and cucumber.", "Roll tightly and slice in half."],
+"cooking_time": "<15 min",
+"tags": ["lunch"]
+},
+{
+"name": "Lentil Carrot Soup",
+"diet": "vegan",
+"ingredients": ["red lentils", "carrot", "onion", "garlic", "vegetable broth", "olive oil", "cumin"],
+"steps": ["Sauté onion and garlic in olive oil until fragrant.", "Add diced carrot, lentils, cumin, and broth.", "Simmer 20 minutes until lentils are soft and blend partially for texture."],
+"cooking_time": "<30 min",
+"tags": ["lunch", "dinner"]
+},
+{
+"name": "Tuna White Bean Salad",
+"diet": "omnivore",
+"ingredients": ["canned tuna", "white beans", "celery", "red onion", "olive oil", "lemon juice", "parsley"],
+"steps": ["Drain tuna and beans and place in a bowl.", "Add chopped celery, onion, and parsley.", "Dress with olive oil and lemon juice and toss."],
+"cooking_time": "<15 min",
+"tags": ["lunch"]
+},
+{
+"name": "Grilled Halloumi Grain Bowl",
+"diet": "vegetarian",
+"ingredients": ["halloumi", "cooked brown rice", "zucchini", "red pepper", "olive oil", "lemon", "oregano"],
+"steps": ["Pan-sear halloumi slices until golden on both sides.", "Sauté zucchini and red pepper in olive oil.", "Assemble with rice, halloumi, veggies, lemon juice, and oregano."],
+"cooking_time": "<30 min",
+"tags": ["lunch"]
+},
+{
+"name": "Tofu Soba Noodle Salad",
+"diet": "vegan",
+"ingredients": ["soba noodles", "firm tofu", "cabbage", "carrot", "soy sauce", "sesame oil", "rice vinegar"],
+"steps": ["Cook soba noodles, rinse under cold water, and drain.", "Pan-sear tofu cubes until crisp.", "Toss noodles, tofu, cabbage, and carrot with soy sauce, sesame oil, and rice vinegar."],
+"cooking_time": "<30 min",
+"tags": ["lunch"]
+},
+{
+"name": "Egg and Avocado Salad Pita",
+"diet": "vegetarian",
+"ingredients": ["hard-boiled eggs", "avocado", "greek yogurt", "lemon juice", "whole wheat pita", "lettuce"],
+"steps": ["Chop eggs and mash with avocado, yogurt, and lemon juice.", "Season to taste and stir until creamy.", "Stuff mixture into pita with lettuce."],
+"cooking_time": "<15 min",
+"tags": ["lunch"]
+},
+{
+"name": "Shrimp Rice Paper Rolls",
+"diet": "omnivore",
+"ingredients": ["cooked shrimp", "rice paper", "lettuce", "carrot", "cucumber", "mint", "peanut sauce"],
+"steps": ["Soak rice paper sheets briefly in warm water.", "Fill with shrimp, lettuce, carrot, cucumber, and mint.", "Roll tightly and serve with peanut sauce."],
+"cooking_time": "<30 min",
+"tags": ["lunch"]
+},
+{
+"name": "Black Bean Corn Salad Bowl",
+"diet": "vegan",
+"ingredients": ["black beans", "corn", "red onion", "avocado", "lime juice", "cilantro", "salt"],
+"steps": ["Combine beans, corn, diced onion, and avocado in a bowl.", "Add lime juice, chopped cilantro, and salt.", "Toss gently and serve."],
+"cooking_time": "<15 min",
+"tags": ["lunch"]
+},
+{
+"name": "Lemon Herb Chicken with Rice",
+"diet": "omnivore",
+"ingredients": ["chicken breast", "brown rice", "broccoli", "olive oil", "lemon", "garlic", "thyme"],
+"steps": ["Cook brown rice according to package directions.", "Season chicken with garlic, thyme, lemon zest, and salt and pan-sear until done.", "Steam broccoli and serve with sliced chicken over rice."],
+"cooking_time": "30-45 min",
+"tags": ["dinner"]
+},
+{
+"name": "Baked Cod with Potatoes and Green Beans",
+"diet": "omnivore",
+"ingredients": ["cod fillet", "baby potatoes", "green beans", "olive oil", "lemon", "garlic", "salt"],
+"steps": ["Preheat oven to 400°F and toss potatoes with olive oil and salt.", "Roast potatoes for 20 minutes, then add cod and green beans to the tray.", "Season cod with garlic and lemon and bake 12 more minutes."],
+"cooking_time": "<60 min",
+"tags": ["dinner"]
+},
+{
+"name": "Chickpea Coconut Curry",
+"diet": "vegan",
+"ingredients": ["chickpeas", "coconut milk", "spinach", "onion", "garlic", "curry powder", "olive oil"],
+"steps": ["Sauté onion and garlic in olive oil.", "Add curry powder and chickpeas and stir 1 minute.", "Pour in coconut milk, simmer 10 minutes, and fold in spinach until wilted."],
+"cooking_time": "<30 min",
+"tags": ["dinner"]
+},
+{
+"name": "Beef and Broccoli Stir-Fry",
+"diet": "omnivore",
+"ingredients": ["beef strips", "broccoli", "garlic", "soy sauce", "ginger", "sesame oil", "cornstarch"],
+"steps": ["Toss beef with cornstarch and a splash of soy sauce.", "Stir-fry beef in sesame oil until browned and remove.", "Cook broccoli with garlic and ginger, return beef, add remaining soy sauce, and toss."],
+"cooking_time": "<30 min",
+"tags": ["dinner"]
+},
+{
+"name": "Stuffed Bell Peppers with Lentils",
+"diet": "vegan",
+"ingredients": ["bell peppers", "cooked lentils", "onion", "carrot", "brown rice", "paprika", "olive oil"],
+"steps": ["Preheat oven to 375°F and halve bell peppers.", "Sauté onion and carrot, then mix with lentils, rice, and paprika.", "Fill peppers and bake 25 minutes until tender."],
+"cooking_time": "<60 min",
+"tags": ["dinner"]
+},
+{
+"name": "Paneer Spinach Skillet",
+"diet": "vegetarian",
+"ingredients": ["paneer", "spinach", "onion", "garlic", "cumin", "olive oil", "salt"],
+"steps": ["Brown paneer cubes in a skillet and set aside.", "Cook onion, garlic, and cumin in the same pan.", "Add spinach to wilt, return paneer, and cook 2 more minutes."],
+"cooking_time": "<30 min",
+"tags": ["dinner"]
+},
+{
+"name": "Turkey Zucchini Meatballs",
+"diet": "omnivore",
+"ingredients": ["ground turkey", "zucchini", "onion", "gluten-free breadcrumbs", "egg", "olive oil", "oregano"],
+"steps": ["Mix turkey, grated zucchini, onion, breadcrumbs, egg, and oregano.", "Form meatballs and place on an oiled sheet pan.", "Bake at 400°F for 18–20 minutes."],
+"cooking_time": "<30 min",
+"tags": ["dinner"]
+},
+{
+"name": "Tofu Peanut Noodle Stir-Fry",
+"diet": "vegan",
+"ingredients": ["rice noodles", "firm tofu", "carrot", "cabbage", "peanut butter", "soy sauce", "lime"],
+"steps": ["Cook rice noodles and set aside.", "Pan-sear tofu until crisp.", "Stir-fry carrot and cabbage, then add noodles and a sauce of peanut butter, soy sauce, and lime."],
+"cooking_time": "<30 min",
+"tags": ["dinner"]
+},
+{
+"name": "Salmon with Quinoa and Asparagus",
+"diet": "omnivore",
+"ingredients": ["salmon fillet", "quinoa", "asparagus", "olive oil", "lemon", "salt", "pepper"],
+"steps": ["Cook quinoa according to package directions.", "Roast salmon and asparagus at 400°F with olive oil, salt, and pepper for 12–15 minutes.", "Serve salmon over quinoa with lemon juice."],
+"cooking_time": "30-45 min",
+"tags": ["dinner"]
+},
+{
+"name": "Mushroom and Pea Risotto",
+"diet": "vegetarian",
+"ingredients": ["arborio rice", "mushrooms", "peas", "onion", "vegetable broth", "olive oil", "parmesan"],
+"steps": ["Sauté onion and mushrooms in olive oil.", "Add arborio rice and toast for 1 minute.", "Add broth gradually, stirring until creamy, then stir in peas and parmesan."],
+"cooking_time": "<60 min",
+"tags": ["dinner"]
+},
+{
+"name": "Chicken Fajita Bowl",
+"diet": "omnivore",
+"ingredients": ["chicken breast", "bell pepper", "onion", "brown rice", "lime", "olive oil", "cumin"],
+"steps": ["Cook rice and keep warm.", "Sauté chicken strips with cumin until cooked.", "Add pepper and onion, cook until tender, and serve over rice with lime."],
+"cooking_time": "30-45 min",
+"tags": ["dinner"]
+},
+{
+"name": "Vegetable Fried Rice",
+"diet": "vegan",
+"ingredients": ["cooked rice", "carrot", "peas", "green onion", "garlic", "soy sauce", "sesame oil"],
+"steps": ["Heat sesame oil in a wok and sauté garlic and carrot.", "Add peas and cooked rice and stir-fry on high heat.", "Season with soy sauce and finish with green onion."],
+"cooking_time": "<15 min",
+"tags": ["dinner"]
+},
+{
+"name": "Eggplant Chickpea Stew",
+"diet": "vegan",
+"ingredients": ["eggplant", "chickpeas", "onion", "garlic", "vegetable broth", "paprika", "olive oil"],
+"steps": ["Sauté onion and garlic in olive oil.", "Add diced eggplant and cook until it softens.", "Stir in chickpeas, paprika, and broth and simmer 15 minutes."],
+"cooking_time": "<30 min",
+"tags": ["dinner"]
+},
+{
+"name": "Garlic Shrimp and Zucchini Skillet",
+"diet": "omnivore",
+"ingredients": ["shrimp", "zucchini", "garlic", "olive oil", "lemon", "chili flakes", "parsley"],
+"steps": ["Sauté garlic and chili flakes in olive oil.", "Add shrimp and cook until pink.", "Stir in zucchini slices and cook until tender-crisp, then finish with lemon and parsley."],
+"cooking_time": "<15 min",
+"tags": ["dinner"]
+},
+{
+"name": "White Bean Kale Pasta",
+"diet": "vegan",
+"ingredients": ["gluten-free pasta", "white beans", "kale", "garlic", "olive oil", "lemon", "nutritional yeast"],
+"steps": ["Cook pasta and reserve a little pasta water.", "Sauté garlic and kale in olive oil until wilted.", "Add beans, pasta, lemon, and pasta water; toss and finish with nutritional yeast."],
+"cooking_time": "<30 min",
+"tags": ["dinner"]
+},
+{
+"name": "Vegetarian Burrito Bowl",
+"diet": "vegetarian",
+"ingredients": ["brown rice", "black beans", "corn", "avocado", "greek yogurt", "lime", "cilantro"],
+"steps": ["Warm rice, beans, and corn separately.", "Layer rice in bowls, then add beans and corn.", "Top with avocado, yogurt, lime juice, and cilantro."],
+"cooking_time": "<15 min",
+"tags": ["lunch", "dinner"]
+},
+{
+"name": "Chicken and Vegetable Soup",
+"diet": "omnivore",
+"ingredients": ["chicken breast", "carrot", "celery", "onion", "garlic", "chicken broth", "olive oil"],
+"steps": ["Sauté onion, carrot, celery, and garlic in olive oil.", "Add broth and diced chicken and bring to a simmer.", "Cook 15 minutes until chicken is fully cooked."],
+"cooking_time": "<30 min",
+"tags": ["dinner"]
+},
+{
+"name": "Cauliflower Lentil Tacos",
+"diet": "vegan",
+"ingredients": ["corn tortillas", "lentils", "cauliflower", "red onion", "lime", "cumin", "olive oil"],
+"steps": ["Roast cauliflower with olive oil and cumin at 425°F for 20 minutes.", "Warm lentils in a pan with a little salt and lime juice.", "Fill tortillas with lentils, cauliflower, and sliced onion."],
+"cooking_time": "30-45 min",
+"tags": ["dinner"]
+},
+{
+"name": "Spinach Feta Stuffed Portobellos",
+"diet": "vegetarian",
+"ingredients": ["portobello mushrooms", "spinach", "feta", "garlic", "olive oil", "breadcrumbs", "pepper"],
+"steps": ["Preheat oven to 400°F and remove mushroom stems.", "Sauté spinach and garlic, then mix with feta and breadcrumbs.", "Fill mushrooms and bake 18 minutes."],
+"cooking_time": "<30 min",
+"tags": ["dinner"]
+},
+{
+"name": "Teriyaki Chicken Rice Bowl",
+"diet": "omnivore",
+"ingredients": ["chicken thigh", "brown rice", "broccoli", "soy sauce", "ginger", "garlic", "honey"],
+"steps": ["Cook rice and set aside.", "Sauté chicken pieces until nearly cooked.", "Add garlic, ginger, soy sauce, and honey, then add broccoli and cook until glazed."],
+"cooking_time": "30-45 min",
+"tags": ["dinner"]
+},
+{
+"name": "Zucchini Noodles with Walnut Pesto",
+"diet": "vegan",
+"ingredients": ["zucchini", "basil", "walnuts", "garlic", "olive oil", "lemon juice", "salt"],
+"steps": ["Blend basil, walnuts, garlic, olive oil, lemon juice, and salt into pesto.", "Spiralize zucchini into noodles.", "Toss zucchini noodles with pesto and serve immediately."],
+"cooking_time": "<15 min",
+"tags": ["lunch"]
+},
+{
+"name": "Egg Fried Quinoa",
+"diet": "vegetarian",
+"ingredients": ["cooked quinoa", "eggs", "peas", "carrot", "green onion", "soy sauce", "sesame oil"],
+"steps": ["Scramble eggs in a hot pan and set aside.", "Stir-fry carrot and peas in sesame oil.", "Add quinoa, soy sauce, and eggs, then finish with green onion."],
+"cooking_time": "<15 min",
+"tags": ["lunch", "dinner"]
+},
+{
+"name": "Baked Falafel Bowl",
+"diet": "vegan",
+"ingredients": ["chickpeas", "parsley", "garlic", "onion", "cumin", "olive oil", "tahini"],
+"steps": ["Pulse chickpeas, parsley, garlic, onion, and cumin in a food processor.", "Form small patties and brush with olive oil.", "Bake at 400°F for 20 minutes and serve with tahini."],
+"cooking_time": "30-45 min",
+"tags": ["lunch", "dinner"]
+},
+{
+"name": "Turkey and Cabbage Stir-Fry",
+"diet": "omnivore",
+"ingredients": ["ground turkey", "cabbage", "carrot", "garlic", "soy sauce", "sesame oil", "ginger"],
+"steps": ["Cook ground turkey in sesame oil until browned.", "Add garlic, ginger, cabbage, and carrot.", "Stir-fry until cabbage softens and finish with soy sauce."],
+"cooking_time": "<30 min",
+"tags": ["dinner"]
+},
+{
+"name": "Roasted Veggie Hummus Bowl",
+"diet": "vegan",
+"ingredients": ["sweet potato", "zucchini", "chickpeas", "olive oil", "hummus", "lemon", "paprika"],
+"steps": ["Roast sweet potato, zucchini, and chickpeas with olive oil and paprika at 425°F for 25 minutes.", "Spread hummus in a bowl.", "Top with roasted vegetables and finish with lemon juice."],
+"cooking_time": "30-45 min",
+"tags": ["lunch", "dinner"]
+},
+{
+"name": "Chicken Spinach Coconut Curry",
+"diet": "omnivore",
+"ingredients": ["chicken breast", "spinach", "onion", "garlic", "coconut milk", "curry powder", "olive oil"],
+"steps": ["Sauté onion and garlic in olive oil until soft.", "Add chicken pieces and cook until lightly browned.", "Stir in curry powder and coconut milk, simmer 12 minutes, then add spinach."],
+"cooking_time": "<30 min",
+"tags": ["dinner"]
+},
+{
+"name": "Broccoli Cheddar Baked Potato",
+"diet": "vegetarian",
+"ingredients": ["russet potato", "broccoli", "cheddar", "greek yogurt", "olive oil", "salt", "pepper"],
+"steps": ["Bake potato at 425°F for 40–45 minutes.", "Steam broccoli until tender.", "Split potato and fill with broccoli, cheddar, and a spoon of yogurt."],
+"cooking_time": "<60 min",
+"tags": ["dinner"]
+},
+{
+"name": "Sardine Lemon Herb Toast",
+"diet": "omnivore",
+"ingredients": ["gluten-free bread", "sardines", "lemon zest", "parsley", "olive oil", "black pepper"],
+"steps": ["Toast the bread.", "Mash sardines lightly with olive oil, lemon zest, and pepper.", "Spread on toast and top with parsley."],
+"cooking_time": "<15 min",
+"tags": ["lunch"]
+},
+{
+"name": "Cabbage Peanut Slaw Bowl",
+"diet": "vegan",
+"ingredients": ["cabbage", "carrot", "cucumber", "peanut butter", "lime juice", "soy sauce", "sesame seeds"],
+"steps": ["Shred cabbage and carrot and slice cucumber.", "Whisk peanut butter, lime juice, and soy sauce into a dressing.", "Toss vegetables with dressing and top with sesame seeds."],
+"cooking_time": "<15 min",
+"tags": ["lunch"]
+},
+{
+"name": "Herbed Omelet with Mushrooms",
+"diet": "vegetarian",
+"ingredients": ["eggs", "mushrooms", "chives", "olive oil", "salt", "pepper"],
+"steps": ["Sauté sliced mushrooms in olive oil until browned.", "Whisk eggs with salt, pepper, and chives.", "Pour eggs into pan, cook until set, and fold over mushrooms."],
+"cooking_time": "<15 min",
+"tags": ["breakfast"]
+},
+{
+"name": "Scrambled Eggs with Avocado Toast",
+"diet": "vegetarian",
+"ingredients": ["eggs", "bread", "avocado", "olive oil", "salt", "pepper"],
+"steps": ["Scramble eggs in a pan with olive oil.", "Toast bread slices.", "Mash avocado and spread on toast, top with eggs."],
+"cooking_time": "<15 min",
+"tags": ["breakfast"]
+},
+{
+"name": "Banana Oat Pancakes",
+"diet": "vegetarian",
+"ingredients": ["banana", "eggs", "rolled oats", "milk", "cinnamon"],
+"steps": ["Blend all ingredients into a batter.", "Pour into a hot pan.", "Cook both sides until golden."],
+"cooking_time": "<15 min",
+"tags": ["breakfast"]
+},
+{
+"name": "Egg and Cheese Breakfast Sandwich",
+"diet": "vegetarian",
+"ingredients": ["eggs", "bread", "cheese", "butter"],
+"steps": ["Cook eggs in a pan.", "Toast bread with butter.", "Assemble sandwich with cheese and eggs."],
+"cooking_time": "<15 min",
+"tags": ["breakfast"]
+},
+{
+"name": "Chicken Salad Sandwich",
+"diet": "omnivore",
+"ingredients": ["cooked chicken", "mayonnaise", "celery", "bread", "salt", "pepper"],
+"steps": ["Mix chicken with mayo and celery.", "Season to taste.", "Serve in bread."],
+"cooking_time": "<15 min",
+"tags": ["lunch"]
+},
+{
+"name": "Egg Fried Rice",
+"diet": "vegetarian",
+"ingredients": ["rice", "eggs", "peas", "carrot", "soy sauce", "oil"],
+"steps": ["Scramble eggs and set aside.", "Stir-fry vegetables.", "Add rice and soy sauce, then eggs."],
+"cooking_time": "<15 min",
+"tags": ["lunch", "dinner"]
+},
+{
+"name": "Grilled Chicken Wrap",
+"diet": "omnivore",
+"ingredients": ["chicken breast", "wrap", "lettuce", "tomato", "yogurt", "salt"],
+"steps": ["Grill chicken and slice.", "Add to wrap with veggies.", "Top with yogurt sauce and wrap."],
+"cooking_time": "<30 min",
+"tags": ["lunch"]
+},
+{
+"name": "Pasta with Tomato Sauce",
+"diet": "vegan",
+"ingredients": ["pasta", "tomato sauce", "garlic", "olive oil", "salt"],
+"steps": ["Cook pasta.", "Heat sauce with garlic.", "Combine and serve."],
+"cooking_time": "<30 min",
+"tags": ["dinner"]
+},
+{
+"name": "Chicken Stir Fry",
+"diet": "omnivore",
+"ingredients": ["chicken", "broccoli", "carrot", "soy sauce", "oil"],
+"steps": ["Cook chicken in a pan.", "Add vegetables.", "Stir in soy sauce and cook until done."],
+"cooking_time": "<30 min",
+"tags": ["dinner"]
+},
+{
+"name": "Beef Taco Bowl",
+"diet": "omnivore",
+"ingredients": ["ground beef", "rice", "lettuce", "tomato", "cheese"],
+"steps": ["Cook beef with seasoning.", "Prepare rice.", "Assemble bowl with toppings."],
+"cooking_time": "<30 min",
+"tags": ["dinner"]
+},
+{
+"name": "Vegetable Soup",
+"diet": "vegan",
+"ingredients": ["carrot", "potato", "celery", "vegetable broth", "salt"],
+"steps": ["Chop vegetables.", "Boil in broth.", "Simmer until soft."],
+"cooking_time": "<30 min",
+"tags": ["lunch", "dinner"]
+},
+{
+"name": "Baked Chicken with Potatoes",
+"diet": "omnivore",
+"ingredients": ["chicken thighs", "potatoes", "olive oil", "salt", "pepper"],
+"steps": ["Preheat oven.", "Season chicken and potatoes.", "Bake until cooked through."],
+"cooking_time": "<60 min",
+"tags": ["dinner"]
+},
+{
+"name": "Tuna Pasta Salad",
+"diet": "omnivore",
+"ingredients": ["pasta", "tuna", "corn", "mayonnaise", "salt"],
+"steps": ["Cook pasta and cool.", "Mix with tuna and corn.", "Add mayo and season."],
+"cooking_time": "<30 min",
+"tags": ["lunch"]
+},
+{
+"name": "Avocado Egg Bowl",
+"diet": "vegetarian",
+"ingredients": ["eggs", "avocado", "rice", "salt", "pepper"],
+"steps": ["Cook rice.", "Fry eggs.", "Serve eggs and avocado over rice."],
+"cooking_time": "<30 min",
+"tags": ["lunch"]
+},
+{
+"name": "Chickpea Salad",
+"diet": "vegan",
+"ingredients": ["chickpeas", "cucumber", "tomato", "olive oil", "lemon"],
+"steps": ["Mix all ingredients.", "Season to taste.", "Serve fresh."],
+"cooking_time": "<15 min",
+"tags": ["lunch"]
+},
+{
+"name": "Garlic Butter Shrimp",
+"diet": "omnivore",
+"ingredients": ["shrimp", "butter", "garlic", "lemon", "salt"],
+"steps": ["Melt butter and cook garlic.", "Add shrimp and cook until pink.", "Finish with lemon."],
+"cooking_time": "<15 min",
+"tags": ["dinner"]
+},
+{
+"name": "Rice and Beans",
+"diet": "vegan",
+"ingredients": ["rice", "beans", "salt", "olive oil"],
+"steps": ["Cook rice.", "Heat beans.", "Serve together."],
+"cooking_time": "<30 min",
+"tags": ["lunch", "dinner"]
+},
+{
+"name": "Omelette with Cheese",
+"diet": "vegetarian",
+"ingredients": ["eggs", "cheese", "butter", "salt"],
+"steps": ["Beat eggs.", "Cook in pan with butter.", "Add cheese and fold."],
+"cooking_time": "<15 min",
+"tags": ["breakfast"]
+},
+{
+"name": "Chicken Caesar Salad",
+"diet": "omnivore",
+"ingredients": ["chicken", "lettuce", "parmesan", "croutons", "caesar dressing"],
+"steps": ["Cook chicken and slice.", "Toss lettuce with dressing.", "Top with chicken and parmesan."],
+"cooking_time": "<30 min",
+"tags": ["lunch"]
+},
+{
+"name": "Vegetable Stir Fry",
+"diet": "vegan",
+"ingredients": ["broccoli", "carrot", "bell pepper", "soy sauce", "oil"],
+"steps": ["Heat oil in pan.", "Add vegetables.", "Stir-fry and add soy sauce."],
+"cooking_time": "<15 min",
+"tags": ["dinner"]
+},
+{
+"name": "Beef Spaghetti",
+"diet": "omnivore",
+"ingredients": ["ground beef", "spaghetti", "tomato sauce", "salt"],
+"steps": ["Cook spaghetti.", "Cook beef.", "Combine with sauce and serve."],
+"cooking_time": "<30 min",
+"tags": ["dinner"]
+},
+{
+"name": "Tomato Basil Soup",
+"diet": "vegan",
+"ingredients": ["tomatoes", "garlic", "olive oil", "vegetable broth", "basil", "salt"],
+"steps": ["Sauté garlic in olive oil.", "Add tomatoes and broth.", "Simmer 20 minutes and blend, then add basil."],
+"cooking_time": "<30 min",
+"tags": ["lunch", "dinner"]
+},
+{
+"name": "Grilled Cheese Sandwich",
+"diet": "vegetarian",
+"ingredients": ["bread", "cheese", "butter"],
+"steps": ["Butter bread slices.", "Place cheese between slices.", "Grill until golden and melted."],
+"cooking_time": "<15 min",
+"tags": ["lunch"]
+},
+{
+"name": "Chicken Pasta Alfredo",
+"diet": "omnivore",
+"ingredients": ["chicken breast", "pasta", "cream", "parmesan", "garlic", "butter"],
+"steps": ["Cook pasta.", "Cook chicken and slice.", "Make sauce with butter, garlic, cream, and parmesan, then combine."],
+"cooking_time": "<30 min",
+"tags": ["dinner"]
+},
+{
+"name": "Roasted Vegetable Tray Bake",
+"diet": "vegan",
+"ingredients": ["zucchini", "carrot", "potato", "olive oil", "salt", "pepper"],
+"steps": ["Chop vegetables.", "Toss with oil and seasoning.", "Roast at 200°C for 30 minutes."],
+"cooking_time": "<60 min",
+"tags": ["dinner"]
+},
+{
+"name": "Ham and Cheese Toastie",
+"diet": "omnivore",
+"ingredients": ["bread", "ham", "cheese", "butter"],
+"steps": ["Assemble sandwich.", "Butter outside.", "Toast until crispy and melted."],
+"cooking_time": "<15 min",
+"tags": ["lunch"]
+},
+{
+"name": "Pasta Aglio e Olio",
+"diet": "vegan",
+"ingredients": ["pasta", "garlic", "olive oil", "chili flakes", "parsley"],
+"steps": ["Cook pasta.", "Heat garlic in olive oil.", "Toss pasta with oil, chili, and parsley."],
+"cooking_time": "<15 min",
+"tags": ["dinner"]
+},
+{
+"name": "Egg Salad Sandwich",
+"diet": "vegetarian",
+"ingredients": ["eggs", "mayonnaise", "mustard", "bread", "salt"],
+"steps": ["Boil eggs and chop.", "Mix with mayo and mustard.", "Serve in bread."],
+"cooking_time": "<15 min",
+"tags": ["lunch"]
+},
+{
+"name": "Chicken Noodle Soup",
+"diet": "omnivore",
+"ingredients": ["chicken", "noodles", "carrot", "celery", "broth", "salt"],
+"steps": ["Cook vegetables in broth.", "Add chicken and simmer.", "Add noodles and cook until tender."],
+"cooking_time": "<30 min",
+"tags": ["lunch", "dinner"]
+},
+{
+"name": "Baked Salmon with Lemon",
+"diet": "omnivore",
+"ingredients": ["salmon", "lemon", "olive oil", "salt", "pepper"],
+"steps": ["Season salmon.", "Bake at 200°C for 15 minutes.", "Serve with lemon."],
+"cooking_time": "<30 min",
+"tags": ["dinner"]
+},
+{
+"name": "Vegetable Couscous",
+"diet": "vegan",
+"ingredients": ["couscous", "zucchini", "carrot", "olive oil", "salt"],
+"steps": ["Prepare couscous.", "Sauté vegetables.", "Mix together and serve."],
+"cooking_time": "<15 min",
+"tags": ["lunch", "dinner"]
+},
+{
+"name": "Beef Burger",
+"diet": "omnivore",
+"ingredients": ["ground beef", "bun", "lettuce", "tomato", "salt"],
+"steps": ["Form and cook patties.", "Toast buns.", "Assemble burger with toppings."],
+"cooking_time": "<30 min",
+"tags": ["lunch", "dinner"]
+},
+{
+"name": "Caprese Salad",
+"diet": "vegetarian",
+"ingredients": ["tomato", "mozzarella", "basil", "olive oil", "salt"],
+"steps": ["Slice tomato and mozzarella.", "Arrange on plate.", "Top with basil and olive oil."],
+"cooking_time": "<15 min",
+"tags": ["lunch"]
+},
+{
+"name": "Chicken Quesadilla",
+"diet": "omnivore",
+"ingredients": ["chicken", "tortilla", "cheese", "butter"],
+"steps": ["Cook chicken.", "Fill tortilla with chicken and cheese.", "Cook until crispy."],
+"cooking_time": "<15 min",
+"tags": ["lunch"]
+},
+{
+"name": "Lentil Stew",
+"diet": "vegan",
+"ingredients": ["lentils", "carrot", "onion", "broth", "salt"],
+"steps": ["Cook onion and carrot.", "Add lentils and broth.", "Simmer until soft."],
+"cooking_time": "<30 min",
+"tags": ["dinner"]
+},
+{
+"name": "Mac and Cheese",
+"diet": "vegetarian",
+"ingredients": ["pasta", "cheese", "milk", "butter", "salt"],
+"steps": ["Cook pasta.", "Make cheese sauce with butter, milk, and cheese.", "Mix together."],
+"cooking_time": "<30 min",
+"tags": ["dinner"]
+},
+{
+"name": "Turkey Sandwich",
+"diet": "omnivore",
+"ingredients": ["bread", "turkey", "lettuce", "tomato", "mayonnaise"],
+"steps": ["Spread mayo on bread.", "Add turkey and vegetables.", "Close sandwich and serve."],
+"cooking_time": "<15 min",
+"tags": ["lunch"]
+},
+{
+"name": "Baked Sweet Potato",
+"diet": "vegan",
+"ingredients": ["sweet potato", "olive oil", "salt"],
+"steps": ["Pierce potato.", "Bake at 200°C for 45 minutes.", "Serve with olive oil and salt."],
+"cooking_time": "<60 min",
+"tags": ["lunch", "dinner"]
+},
+{
+"name": "Fried Egg Toast",
+"diet": "vegetarian",
+"ingredients": ["egg", "bread", "butter", "salt"],
+"steps": ["Fry egg.", "Toast bread.", "Serve egg on toast."],
+"cooking_time": "<15 min",
+"tags": ["breakfast"]
+},
+{
+"name": "Simple Chicken Rice",
+"diet": "omnivore",
+"ingredients": ["chicken", "rice", "salt", "olive oil"],
+"steps": ["Cook rice.", "Cook chicken.", "Serve together."],
+"cooking_time": "<30 min",
+"tags": ["lunch", "dinner"]
+},
+{
+"name": "Vegetable Omelette",
+"diet": "vegetarian",
+"ingredients": ["eggs", "bell pepper", "onion", "oil", "salt"],
+"steps": ["Beat eggs.", "Cook vegetables.", "Add eggs and cook until set."],
+"cooking_time": "<15 min",
+"tags": ["breakfast"]
+},
+{
+"name": "Apple Cinnamon Oatmeal",
+"diet": "vegan",
+"ingredients": ["rolled oats", "apple", "cinnamon", "water", "maple syrup"],
+"steps": ["Cook oats with water.", "Add diced apple and cinnamon.", "Sweeten with maple syrup and serve warm."],
+"cooking_time": "<15 min",
+"tags": ["breakfast"]
+},
+{
+"name": "Berry Smoothie",
+"diet": "vegan",
+"ingredients": ["frozen berries", "banana", "almond milk"],
+"steps": ["Blend all ingredients until smooth.", "Serve immediately."],
+"cooking_time": "<15 min",
+"tags": ["breakfast"]
+},
+{
+"name": "Yogurt Honey Banana Bowl",
+"diet": "vegetarian",
+"ingredients": ["yogurt", "banana", "honey"],
+"steps": ["Slice banana.", "Add to yogurt.", "Drizzle honey and serve."],
+"cooking_time": "<15 min",
+"tags": ["breakfast"]
+},
+{
+"name": "Boiled Eggs with Toast",
+"diet": "vegetarian",
+"ingredients": ["eggs", "bread", "salt"],
+"steps": ["Boil eggs.", "Toast bread.", "Serve together with salt."],
+"cooking_time": "<15 min",
+"tags": ["breakfast"]
+},
+{
+"name": "Rice Cake Peanut Snack",
+"diet": "vegan",
+"ingredients": ["rice cakes", "peanut butter"],
+"steps": ["Spread peanut butter on rice cakes.", "Serve immediately."],
+"cooking_time": "<15 min",
+"tags": ["breakfast"]
+},
+{
+"name": "Simple Green Salad",
+"diet": "vegan",
+"ingredients": ["lettuce", "cucumber", "olive oil", "lemon", "salt"],
+"steps": ["Chop vegetables.", "Mix with oil and lemon.", "Season and serve."],
+"cooking_time": "<15 min",
+"tags": ["lunch"]
+},
+{
+"name": "Tomato Sandwich",
+"diet": "vegan",
+"ingredients": ["bread", "tomato", "olive oil", "salt"],
+"steps": ["Slice tomato.", "Assemble in bread.", "Add oil and salt."],
+"cooking_time": "<15 min",
+"tags": ["lunch"]
+},
+{
+"name": "Cheese and Crackers Plate",
+"diet": "vegetarian",
+"ingredients": ["cheese", "crackers"],
+"steps": ["Arrange cheese and crackers on a plate.", "Serve."],
+"cooking_time": "<15 min",
+"tags": ["lunch"]
+},
+{
+"name": "Hummus Veggie Plate",
+"diet": "vegan",
+"ingredients": ["hummus", "carrot", "cucumber"],
+"steps": ["Slice vegetables.", "Serve with hummus."],
+"cooking_time": "<15 min",
+"tags": ["lunch"]
+},
+{
+"name": "Egg and Rice Bowl",
+"diet": "vegetarian",
+"ingredients": ["rice", "eggs", "salt"],
+"steps": ["Cook rice.", "Fry eggs.", "Serve eggs over rice."],
+"cooking_time": "<30 min",
+"tags": ["lunch"]
+},
+{
+"name": "Chicken Rice Soup",
+"diet": "omnivore",
+"ingredients": ["chicken", "rice", "broth", "salt"],
+"steps": ["Cook chicken in broth.", "Add rice.", "Simmer until done."],
+"cooking_time": "<30 min",
+"tags": ["lunch", "dinner"]
+},
+{
+"name": "Pasta with Olive Oil",
+"diet": "vegan",
+"ingredients": ["pasta", "olive oil", "salt"],
+"steps": ["Cook pasta.", "Drain and mix with olive oil and salt."],
+"cooking_time": "<15 min",
+"tags": ["dinner"]
+},
+{
+"name": "Baked Chicken Drumsticks",
+"diet": "omnivore",
+"ingredients": ["chicken drumsticks", "olive oil", "salt", "pepper"],
+"steps": ["Season chicken.", "Bake at 200°C for 40 minutes.", "Serve hot."],
+"cooking_time": "<60 min",
+"tags": ["dinner"]
+},
+{
+"name": "Pan Fried Fish",
+"diet": "omnivore",
+"ingredients": ["fish fillet", "oil", "salt"],
+"steps": ["Heat oil in pan.", "Cook fish until golden.", "Season and serve."],
+"cooking_time": "<15 min",
+"tags": ["dinner"]
+},
+{
+"name": "Vegetable Couscous Bowl",
+"diet": "vegan",
+"ingredients": ["couscous", "carrot", "zucchini", "olive oil"],
+"steps": ["Prepare couscous.", "Cook vegetables.", "Combine and serve."],
+"cooking_time": "<15 min",
+"tags": ["dinner"]
+},
+{
+"name": "Simple Lentil Bowl",
+"diet": "vegan",
+"ingredients": ["lentils", "olive oil", "salt"],
+"steps": ["Cook lentils.", "Add oil and salt.", "Serve warm."],
+"cooking_time": "<30 min",
+"tags": ["lunch", "dinner"]
+},
+{
+"name": "Chicken Pasta Salad",
+"diet": "omnivore",
+"ingredients": ["pasta", "chicken", "olive oil", "salt"],
+"steps": ["Cook pasta.", "Add cooked chicken.", "Mix with oil and serve."],
+"cooking_time": "<30 min",
+"tags": ["lunch"]
+},
+{
+"name": "Rice with Fried Vegetables",
+"diet": "vegan",
+"ingredients": ["rice", "carrot", "onion", "oil"],
+"steps": ["Cook rice.", "Fry vegetables.", "Mix together."],
+"cooking_time": "<30 min",
+"tags": ["dinner"]
+},
+{
+"name": "Egg Wrap",
+"diet": "vegetarian",
+"ingredients": ["eggs", "tortilla", "oil"],
+"steps": ["Cook eggs.", "Wrap in tortilla.", "Serve warm."],
+"cooking_time": "<15 min",
+"tags": ["breakfast"]
+},
+{
+"name": "Simple Chicken Salad",
+"diet": "omnivore",
+"ingredients": ["chicken", "lettuce", "olive oil"],
+"steps": ["Cook chicken.", "Slice and mix with lettuce.", "Add oil and serve."],
+"cooking_time": "<30 min",
+"tags": ["lunch"]
+}
 ]
