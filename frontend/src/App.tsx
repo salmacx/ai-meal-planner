@@ -3,9 +3,16 @@ import InputForm from "./components/InputForm";
 import MealPlan from "./components/MealPlan";
 import "./App.css";
 
+type SelectedMeal = {
+  name: string;
+  ingredients: string[];
+  steps: string[];
+  calories?: number;
+};
+
 function App() {
   const [mealPlan, setMealPlan] = useState(null);
-  const [selectedMeal, setSelectedMeal] = useState<string | null>(null);
+  const [selectedMeal, setSelectedMeal] = useState<SelectedMeal | null>(null);
 
   return (
     <div className="app">
@@ -41,28 +48,35 @@ function App() {
         </div>
 
         <aside className="recipe-box">
-         <h3>Recipe Details</h3>
-            {selectedMeal ? (
-  <div className="selected-recipe">
-   <h4>{typeof selectedMeal === "string" ? selectedMeal : selectedMeal.name}</h4>
+          <h3>Recipe Details</h3>
 
-    <p className="recipe-section-title">Ingredients</p>
-   <ul>
-  {selectedMeal.ingredients.map((ing: string, i: number) => (
-    <li key={i}>{ing}</li>
-  ))}
-</ul>
+          {selectedMeal ? (
+            <div className="selected-recipe">
+              <h4>{selectedMeal.name}</h4>
 
-    <p className="recipe-section-title">Steps</p>
-   <ol>
-  {selectedMeal.steps.map((step: string, i: number) => (
-    <li key={i}>{step}</li>
-  ))}
-</ol>
-  </div>
-) : (
-  <p>Select a meal to view recipe details.</p>
-)}
+              {selectedMeal.calories && (
+                <p className="recipe-section-title">
+                  Calories: {selectedMeal.calories}
+                </p>
+              )}
+
+              <p className="recipe-section-title">Ingredients</p>
+              <ul>
+                {selectedMeal.ingredients.map((ing: string, i: number) => (
+                  <li key={i}>{ing}</li>
+                ))}
+              </ul>
+
+              <p className="recipe-section-title">Steps</p>
+              <ol>
+                {selectedMeal.steps.map((step: string, i: number) => (
+                  <li key={i}>{step}</li>
+                ))}
+              </ol>
+            </div>
+          ) : (
+            <p>Select a meal to view recipe details.</p>
+          )}
         </aside>
       </main>
     </div>
