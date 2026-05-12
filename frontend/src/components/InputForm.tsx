@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 
-const InputForm = ({ setMealPlan }: any) => {
+const InputForm = ({ setMealPlan, setPreferences }: any) => {
   const [form, setForm] = useState({
     diet: "vegetarian",
     budget: "low",
@@ -14,8 +14,13 @@ const InputForm = ({ setMealPlan }: any) => {
 
   const userId = "user";
 
+  const updateForm = (newForm: any) => {
+    setForm(newForm);
+    setPreferences(newForm);
+  };
+
   useEffect(() => {
-    fetch(`http://localhost:8000/preferences?user_id=${userId}`)
+    fetch("http://localhost:8000/preferences")
       .then((res) => {
         if (!res.ok) return null;
         return res.json();
@@ -23,15 +28,19 @@ const InputForm = ({ setMealPlan }: any) => {
       .then((data) => {
         if (!data) return;
 
-        setForm({
-          diet: data.diet_type || "vegetarian",
+        const loadedForm = {
+          diet: data.diet || data.diet_type || "vegetarian",
           budget: data.budget || "low",
           days: data.number_of_days || 3,
           cookingTime: data.cooking_time || "<30",
-          allergies: Array.isArray(data.allergies_or_dislikes)
+          allergies: Array.isArray(data.allergies)
+            ? data.allergies.join(", ")
+            : Array.isArray(data.allergies_or_dislikes)
             ? data.allergies_or_dislikes.join(", ")
             : "",
-        });
+        };
+
+        updateForm(loadedForm);
       })
       .catch(() => {
         console.log("No saved preferences found yet.");
@@ -43,10 +52,12 @@ const InputForm = ({ setMealPlan }: any) => {
   ) => {
     const { name, value } = e.target;
 
-    setForm({
+    const newForm = {
       ...form,
       [name]: value,
-    });
+    };
+
+    updateForm(newForm);
   };
 
   const savePreferences = async () => {
@@ -56,12 +67,8 @@ const InputForm = ({ setMealPlan }: any) => {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
-        user_id: userId,
-        diet_type: form.diet,
-        budget: form.budget,
-        number_of_days: form.days,
-        cooking_time: form.cookingTime,
-        allergies_or_dislikes: form.allergies
+        diet: form.diet,
+        allergies: form.allergies
           ? form.allergies.split(",").map((item) => item.trim())
           : [],
       }),
@@ -84,6 +91,7 @@ const InputForm = ({ setMealPlan }: any) => {
           "Content-Type": "application/json",
         },
         body: JSON.stringify({
+          user_id: userId,
           diet_type: form.diet,
           budget: form.budget,
           number_of_days: form.days,
@@ -99,7 +107,6 @@ const InputForm = ({ setMealPlan }: any) => {
       }
 
       const data = await response.json();
-      console.log("MEAL PLAN RESPONSE:", data);
       setMealPlan(data);
 
       await savePreferences();
@@ -135,7 +142,7 @@ const InputForm = ({ setMealPlan }: any) => {
           type="button"
           className="days-btn"
           onClick={() =>
-            setForm({ ...form, days: Math.max(1, form.days - 1) })
+            updateForm({ ...form, days: Math.max(1, form.days - 1) })
           }
         >
           −
@@ -147,7 +154,7 @@ const InputForm = ({ setMealPlan }: any) => {
           type="button"
           className="days-btn"
           onClick={() =>
-            setForm({ ...form, days: Math.min(7, form.days + 1) })
+            updateForm({ ...form, days: Math.min(7, form.days + 1) })
           }
         >
           +
@@ -176,11 +183,12 @@ const InputForm = ({ setMealPlan }: any) => {
       <button onClick={handleSubmit} disabled={loading}>
         {loading ? "Generating..." : "Generate Meal Plan"}
       </button>
+
       {loading && (
         <div className="progress-wrapper">
-            <div className="progress-bar"></div>
+          <div className="progress-bar"></div>
         </div>
-        )}
+      )}
 
       {error && <p className="error">{error}</p>}
     </div>

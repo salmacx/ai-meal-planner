@@ -14,6 +14,14 @@ function App() {
   const [mealPlan, setMealPlan] = useState(null);
   const [selectedMeal, setSelectedMeal] = useState<SelectedMeal | null>(null);
 
+  const [preferences, setPreferences] = useState({
+    diet: "vegetarian",
+    budget: "low",
+    days: 3,
+    cookingTime: "<30",
+    allergies: "",
+  });
+
   return (
     <div className="app">
       <header className="header">
@@ -28,14 +36,22 @@ function App() {
       <main className="container">
         <div className="left-column">
           <div className="left">
-            <InputForm setMealPlan={setMealPlan} />
+            <InputForm
+              setMealPlan={setMealPlan}
+              setPreferences={setPreferences}
+            />
           </div>
 
           <aside className="preferences-box">
             <h3>Your Preferences</h3>
-            <p>🥗 Diet: Vegetarian</p>
-            <p>💰 Budget: Low</p>
-            <p>⏱ Cooking Time: &lt; 30 min</p>
+            <p>🥗 Diet: {preferences.diet}</p>
+            <p>💰 Budget: {preferences.budget}</p>
+            <p>📅 Days: {preferences.days}</p>
+            <p>⏱ Cooking Time: {preferences.cookingTime}</p>
+            <p>
+              ⚠️ Allergies:{" "}
+              {preferences.allergies ? preferences.allergies : "None"}
+            </p>
           </aside>
         </div>
 
@@ -56,7 +72,7 @@ function App() {
 
               {selectedMeal.calories && (
                 <p className="recipe-section-title">
-                  Calories: {selectedMeal.calories}
+                  Calories: {selectedMeal.calories} kcal
                 </p>
               )}
 

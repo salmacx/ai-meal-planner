@@ -1,0 +1,35 @@
+{
+  "diet": "omnivore",
+  "allergies": [
+    "egg",
+    "yogurt",
+    "cheese"
+  ],
+  "recent_meals": [
+    "Cheese and Crackers Plate",
+    "Mac and Cheese",
+    "Cottage Cheese Pineapple Bowl",
+    "Grilled Halloumi Grain Bowl",
+    "Caprese Salad",
+    "Paneer Spinach Skillet",
+    "Rice Cake Peanut Snack",
+    "Lentil Carrot Soup",
+    "Chickpea Coconut Curry",
+    "Chia Pudding with Mango",
+    "Chicken Salad Sandwich",
+    "Beef Spaghetti",
+    "Roasted Veggie Hummus Bowl",
+    "Spinach Feta Stuffed Portobellos",
+    "Overnight Oats with Blueberries and Almonds",
+    "Simple Lentil Bowl",
+    "Avocado Radish Rice Cakes",
+    "Tuna Pasta Salad",
+    "Salmon with Quinoa and Asparagus",
+    "Smoked Salmon Cucumber Plate",
+    "Chicken Noodle Soup",
+    "Tofu Peanut Noodle Stir-Fry",
+    "Sweet Potato Breakfast Hash",
+    "Shrimp Rice Paper Rolls",
+    "Chicken Stir Fry"
+  ]
+}
