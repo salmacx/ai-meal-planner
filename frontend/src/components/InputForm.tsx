@@ -99,6 +99,7 @@ const InputForm = ({ setMealPlan }: any) => {
       }
 
       const data = await response.json();
+      console.log("MEAL PLAN RESPONSE:", data);
       setMealPlan(data);
 
       await savePreferences();
