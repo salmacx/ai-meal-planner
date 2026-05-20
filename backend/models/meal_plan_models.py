@@ -33,10 +33,3 @@ class DayMealPlan(BaseModel):
 
 class MealPlanResponse(BaseModel):
     days: list[DayMealPlan]
-
-class StoredMealPlan(BaseModel):
-        user_id: str | None = None
-        request: MealPlanRequest
-        generated_plan: MealPlanResponse
-        timestamp: str
-

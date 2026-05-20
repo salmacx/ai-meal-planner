@@ -24,6 +24,10 @@ Rules:
 - Avoid: {allergies}
 - Avoid repeating: {avoided_meals}
 
+Use these recipes as inspiration. Try to reuse ingredients or meal ideas from them when possible:
+
+{retrieved_recipes}
+
 Input:
 {input_plan}
 """
@@ -41,14 +45,21 @@ def enrich_plan_with_llm(
     recipe_context: list[dict],
     timeout_seconds: int = 20,
 ) -> tuple[str | None, float]:
-    context = [{"name": r.get("name"), "diet": r.get("diet"), "tags": r.get("tags", []), "ingredients": r.get("ingredients", [])[:5]} for r in recipe_context[:5]]
+
+    context = [
+        {
+            "name": r.get("name"),
+            "ingredients": r.get("ingredients", [])[:5]
+        }
+        for r in recipe_context[:5]
+    ]
 
     vars = {
         "diet_type": diet_type,
         "allergies": ", ".join(allergies) if allergies else "none",
         "avoided_meals": avoided_meals[:10],
         "input_plan": json.dumps({"days": days_payload}, ensure_ascii=False),
-        "retrieved_recipes": json.dumps(context, ensure_ascii=False),
+        "retrieved_recipes": json.dumps(context or [], ensure_ascii=False),
     }
 
     def _invoke() -> dict:

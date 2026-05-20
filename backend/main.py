@@ -2,8 +2,6 @@ import logging
 import os
 import random
 import time
-import re
-
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 
@@ -64,21 +62,6 @@ def add_fallback_calories(plan: MealPlanResponse) -> MealPlanResponse:
             if meal.calories is None:
                 meal.calories = estimate_calories(meal.name)
     return plan
-
-def clean_llm_output(text: str) -> str:
-    text = text.strip()
-
-    if "```" in text:
-        parts = text.split("```")
-        if len(parts) >= 2:
-            text = parts[1]
-
-    # extract only JSON object
-    match = re.search(r"\{.*\}", text, re.DOTALL)
-    if match:
-        return match.group(0)
-
-    return text
 
 @app.post("/preferences")
 def save_preferences(payload: PreferencesRequest):
