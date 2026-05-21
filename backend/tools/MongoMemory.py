@@ -17,7 +17,11 @@ class MongoMemory:
             return
 
         try:
-            client = MongoClient(mongo_uri, serverSelectionTimeoutMS=3000)
+            client = MongoClient(
+                mongo_uri,
+                serverSelectionTimeoutMS=3000,
+                tlsAllowInvalidCertificates=True
+            )
             client.admin.command("ping")
             self.collection = client[db_name]["meal_plans"]
             print("Mongo connected")

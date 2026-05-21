@@ -133,7 +133,7 @@ def generate_meal_plan(request: MealPlanRequest) -> MealPlanResponse:
 
             score = good / total if total else 0
 
-            # only use llm if it aint trash
+            # only use llm if it ain't trash
             if score >= 0.6:
                 final_response = llm_response
                 logger.info("llm_used score=%.2f", score)
@@ -154,7 +154,7 @@ def generate_meal_plan(request: MealPlanRequest) -> MealPlanResponse:
     json_memory.add_recent_meals(meal_names)
 
     final_response = add_fallback_calories(final_response)
-    memory.save_plan(request.user_id, request.model_dump(), final_response.model_dump())
+    memory.save_plan(request.user_id or "user", request.model_dump(), final_response.model_dump())
     return final_response
 
 

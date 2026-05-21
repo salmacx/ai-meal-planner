@@ -111,10 +111,14 @@ const InputForm = ({ setMealPlan, setPreferences }: any) => {
 
       await savePreferences();
     } catch (error) {
-      setError("Failed to generate meal plan. Please try again.");
+        console.error(error);
+
+         setError(
+            "Could not generate meal plan. Please check backend connection and try again."
+            );
     } finally {
-      setLoading(false);
-    }
+         setLoading(false);
+     }
   };
 
   return (
@@ -190,7 +194,7 @@ const InputForm = ({ setMealPlan, setPreferences }: any) => {
         </div>
       )}
 
-      {error && <p className="error">{error}</p>}
+      {error && <div className="error-box">{error}</div>}
     </div>
   );
 };

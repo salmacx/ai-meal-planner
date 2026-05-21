@@ -1,0 +1,47 @@
+description: "AI Meal Planner evaluation"
+
+prompts:
+  - |
+    Generate a meal plan using:
+
+    diet_type: {{diet_type}}
+    budget: {{budget}}
+    number_of_days: {{number_of_days}}
+    cooking_time: {{cooking_time}}
+    allergies: {{allergies}}
+
+    Return only valid JSON.
+
+providers:
+  - "ollama:chat:phi3:mini"
+  - "ollama:chat:llama3.1:latest"
+  - "ollama:chat:llama3.2:latest"
+
+tests:
+  - vars:
+      diet_type: vegan
+      budget: low
+      number_of_days: 3
+      cooking_time: "<30"
+      allergies: eggs, milk
+    assert:
+      - type: contains-json
+      - type: not-contains
+        value: egg
+      - type: not-contains
+        value: milk
+
+  - vars:
+      diet_type: vegetarian
+      budget: medium
+      number_of_days: 2
+      cooking_time: "<60"
+      allergies: nuts
+    assert:
+      - type: contains-json
+      - type: contains
+        value: breakfast
+      - type: contains
+        value: lunch
+      - type: contains
+        value: dinner

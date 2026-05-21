@@ -14,6 +14,9 @@ function App() {
   const [mealPlan, setMealPlan] = useState(null);
   const [selectedMeal, setSelectedMeal] = useState<SelectedMeal | null>(null);
 
+  const [history, setHistory] = useState<any[]>([]);
+  const [showHistory, setShowHistory] = useState(false);
+
   const [preferences, setPreferences] = useState({
     diet: "vegetarian",
     budget: "low",
@@ -22,16 +25,93 @@ function App() {
     allergies: "",
   });
 
+  const loadHistory = async () => {
+    try {
+      const response = await fetch(
+        "http://localhost:8000/meal-history?user_id=user"
+      );
+
+      if (!response.ok) {
+        throw new Error("Failed to fetch history");
+      }
+
+      const data = await response.json();
+      console.log("HISTORY RESPONSE:", data);
+
+      setHistory(Array.isArray(data) ? data : []);
+      setShowHistory(true);
+    } catch (error) {
+      console.error("Failed to load meal history:", error);
+      setHistory([]);
+      setShowHistory(true);
+    }
+  };
+
   return (
     <div className="app">
       <header className="header">
         <h1>🥗 AI Meal Planner</h1>
 
         <nav>
-          <span>Saved Plans</span>
+          <span onClick={loadHistory} style={{ cursor: "pointer" }}>
+            Saved Plans
+          </span>
           <span>My Profile</span>
         </nav>
       </header>
+
+      {showHistory && (
+        <div className="history-panel">
+          <div className="history-header">
+            <h2>Saved Plans</h2>
+            <button onClick={() => setShowHistory(false)}>Close</button>
+          </div>
+
+          {history.length === 0 ? (
+            <p>No saved plans yet.</p>
+          ) : (
+            history.map((item: any, index: number) => {
+              const plan = item.generated_plan;
+
+              if (!plan?.days) {
+                return null;
+              }
+
+              return (
+                <div key={index} className="history-card">
+                  <h3>Plan {index + 1}</h3>
+
+                  {item.timestamp && (
+                    <small>
+                      {new Date(item.timestamp).toLocaleString()}
+                    </small>
+                  )}
+
+                  {plan.days.slice(0, 2).map((day: any, dayIndex: number) => (
+                    <div key={dayIndex}>
+                      <strong>{day.day}</strong>
+                      <p>
+                        {day.breakfast?.name} / {day.lunch?.name} /{" "}
+                        {day.dinner?.name}
+                      </p>
+                    </div>
+                  ))}
+
+                  <button
+                    onClick={() => {
+                      setMealPlan(plan);
+                      setSelectedMeal(null);
+                      setShowHistory(false);
+                    }}
+                  >
+                    View This Plan
+                  </button>
+                </div>
+              );
+            })
+          )}
+        </div>
+      )}
 
       <main className="container">
         <div className="left-column">
