@@ -137,7 +137,7 @@ def generate_meal_plan(request: MealPlanRequest) -> MealPlanResponse:
     json_memory.add_recent_meals(meal_names)
 
     final_response = add_fallback_calories(final_response)
-    memory.save_plan(request.user_id, request.model_dump(), final_response.model_dump())
+    memory.save_plan(request.user_id or "user", request.model_dump(), final_response.model_dump())
     return final_response
 
 

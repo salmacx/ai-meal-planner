@@ -49,6 +49,8 @@ def enrich_plan_with_llm(
     context = [
         {
             "name": r.get("name"),
+            "diet": r.get("diet"),
+            "tags": r.get("tags", []),
             "ingredients": r.get("ingredients", [])[:5]
         }
         for r in recipe_context[:5]
