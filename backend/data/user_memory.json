@@ -1,21 +1,13 @@
 {
-  "diet": "omnivore",
+  "diet": "vegan",
   "allergies": [
-    "egg",
-    "yogurt",
-    "cheese"
+    "milk"
   ],
   "recent_meals": [
-    "Shrimp Rice Paper Rolls",
-    "Chia Pudding with Mango",
-    "Black Bean Corn Salad Bowl",
     "Chicken Noodle Soup",
     "Garlic Shrimp and Zucchini Skillet",
     "Simple Green Salad",
     "Chicken Spinach Coconut Curry",
-    "Grilled Halloumi Grain Bowl",
-    "Spinach Feta Stuffed Portobellos",
-    "Paneer Spinach Skillet",
     "Peanut Banana Toast",
     "Chickpea Salad",
     "Pasta with Tomato Sauce",
@@ -26,10 +18,16 @@
     "Turkey Sandwich",
     "Chicken and Vegetable Soup",
     "Rice Cake Peanut Snack",
-    "Caprese Salad",
     "Rice and Beans",
     "Avocado Radish Rice Cakes",
     "Lentil Carrot Soup",
-    "Beef and Broccoli Stir-Fry"
+    "Beef and Broccoli Stir-Fry",
+    "Grilled Halloumi Grain Bowl",
+    "Spinach Feta Stuffed Portobellos",
+    "Fried Egg Toast",
+    "Caprese Salad",
+    "Cottage Cheese Pineapple Bowl",
+    "Egg Fried Rice",
+    "Paneer Spinach Skillet"
   ]
 }
