@@ -14,8 +14,8 @@ prompts:
 
 providers:
   - "ollama:chat:phi3:mini"
-  - "ollama:chat:llama3.1:latest"
   - "ollama:chat:llama3.2:latest"
+  - "ollama:chat:qwen2.5:latest"
 
 tests:
   - vars:
